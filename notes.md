@@ -19,7 +19,7 @@ Capcană frecventă:
 Exemplu minim:
 `let mut my_name = "Dave".to_string(); my_name.push('!'); println!("{}", my_name);`
 
-Scor înțelegere: _/10
+Scor înțelegere: 10/10
 
 ## 1.2
 
@@ -40,7 +40,7 @@ Capcană frecventă:
 Exemplu minim:
 `let some_number = 100; // comentariu scurt`
 
-Scor înțelegere: _/10
+Scor înțelegere: 10/10
 
 ## 1.3
 
@@ -61,7 +61,7 @@ Capcană frecventă:
 Exemplu minim:
 `println!("{} / {}", "안녕!".len(), "안녕!".chars().count());`
 
-Scor înțelegere: _/10
+Scor înțelegere: 10/10
 
 ## 1.4
 
@@ -82,7 +82,7 @@ Capcană frecventă:
 Exemplu minim:
 `let a: u8 = 10; let b = 10u8; let c = 100_000_i32;`
 
-Scor înțelegere: _/10
+Scor înțelegere: 10/10
 
 ## 1.5
 
@@ -102,5 +102,26 @@ Capcană frecventă:
 
 Exemplu minim:
 `let a: f64 = 5.0; let b: f32 = 8.5; let c = a + b as f64;`
+
+Scor înțelegere: 10/10
+
+## 1.6
+
+1. Secțiunea introduce exemplul clasic `Hello, world!` și explică afișarea cu `println!`.
+2. Acoladele `{}` din `println!` pot afișa valori introduse direct sau returnate de funcții.
+3. Funcțiile pot primi argumente și pot întoarce valori cu `->`.
+4. În Rust, ultima expresie fără `;` este returnată implicit din funcție.
+5. Concluzia practică: `println!`, argumentele și returnarea valorilor sunt baza pentru funcțiile următoare.
+
+Concepte-cheie:
+- `println!` este macro-ul standard pentru afișare.
+- `fn nume(...) -> tip` definește o funcție care întoarce o valoare.
+- Lipsa lui `;` pe ultima expresie permite return implicit.
+
+Capcană frecventă:
+- Dacă pui `;` la finalul expresiei returnate, funcția nu mai întoarce valoarea așteptată.
+
+Exemplu minim:
+`fn give_number() -> i32 { 8 } println!("{}", give_number());`
 
 Scor înțelegere: _/10

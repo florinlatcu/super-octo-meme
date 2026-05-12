@@ -24,7 +24,7 @@ Funcțiile din `main.rs` folosesc prefixul `lunches_` ca să fie clar că lucrez
 - [x] 1.3
 - [x] 1.4
 - [x] 1.5
-- [ ] 1.6
+- [x] 1.6
 - [ ] 1.7
 - [ ] 1.8
 - [ ] 1.9

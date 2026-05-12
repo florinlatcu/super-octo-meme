@@ -12,6 +12,7 @@ mod chapter1 {
         lunches_1_3();
         lunches_1_4();
         lunches_1_5();
+        lunches_1_6();
     }
 
     fn lunches_1_1() {
@@ -105,6 +106,31 @@ mod chapter1 {
         let forced_f32_right = 8.5;
         let forced_f32_sum = forced_f32_left + forced_f32_right;
         println!("forced_f32_sum (f32 + f32) = {}", forced_f32_sum);
+    }
+
+    fn lunches_1_6() {
+        // ----- 1.6 “Hello, World!” and printing -----
+        // Afișarea textului în consolă folosind println! și exemple simple de funcții.
+        println!("Hello, world!");
+        println!("Hello, world number {}!", 8);
+        println!("Hello, worlds number {} and {}!", 8, 9);
+
+        // Exemplu de funcție care returnează o valoare fără a folosi `return`.
+        println!("Hello, world number {}!", lunches_1_6_give_number());
+
+        // Exemplu de funcție cu argumente și rezultat întors.
+        let multiply_result = lunches_1_6_multiply(8, 9);
+        println!("The two numbers multiplied are: {multiply_result}");
+    }
+
+    fn lunches_1_6_give_number() -> i32 {
+        // Ultima expresie fără `;` devine valoarea returnată.
+        8
+    }
+
+    fn lunches_1_6_multiply(number_one: i32, number_two: i32) -> i32 {
+        // Putem întoarce direct expresia finală.
+        number_one * number_two
     }
 }
 
