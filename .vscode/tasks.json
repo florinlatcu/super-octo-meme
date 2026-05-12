@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Rust: Daily Run",
+      "type": "shell",
+      "command": "cargo",
+      "args": ["run"],
+      "group": "build",
+      "problemMatcher": ["$rustc"],
+      "detail": "Rulează rapid proiectul pentru rutina zilnică de studiu."
+    }
+  ]
+}
