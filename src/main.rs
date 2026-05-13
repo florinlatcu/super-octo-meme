@@ -14,6 +14,7 @@ mod chapter1 {
         lunches_1_5();
         lunches_1_6();
         lunches_1_7();
+        lunches_1_8();
     }
 
     fn lunches_1_1() {
@@ -160,6 +161,34 @@ mod chapter1 {
             let _ = second_number + 9;
         };
         println!("Block with semicolon returns: {:?}", unit_from_block);
+    }
+
+    #[derive(Debug)]
+    struct LunchesUser {
+        name: &'static str,
+        user_number: u32,
+    }
+
+    fn lunches_1_8() {
+        // ----- 1.8 Display and Debug -----
+        // `{}` => `Display`, `{:?}` => `Debug`, `{:#?}` => pretty `Debug`.
+
+        let simple_number = 99;
+        println!("Display print with {{}}: {}", simple_number);
+
+        let unit_value = ();
+        println!("Debug print for unit value: {:?}", unit_value);
+
+        let user = LunchesUser {
+            name: "Mr. User",
+            user_number: 101,
+        };
+        println!("User name: {}, user number: {}", user.name, user.user_number);
+        println!("Debug one-line: {:?}", user);
+        println!("Debug pretty:\n{:#?}", user);
+
+        print!("This will not print a new line");
+        println!(" so this will be on the same line");
     }
 }
 

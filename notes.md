@@ -110,17 +110,17 @@ Scor înțelegere: 10/10
 
 1. Secțiunea introduce exemplul clasic `Hello, world!` și explică afișarea cu `println!`.
 2. Acoladele `{}` din `println!` pot afișa valori introduse direct sau returnate de funcții.
-3. Funcțiile pot primi argumente și pot întoarce valori cu `->`.
-4. În Rust, ultima expresie fără `;` este returnată implicit din funcție.
-5. Concluzia practică: `println!`, argumentele și returnarea valorilor sunt baza pentru funcțiile următoare.
+3. Functions pot primi arguments și pot întoarce values cu `->`.
+4. În Rust, ultima expression fără `;` este returnată implicit din function.
+5. Concluzia practică: `println!`, function arguments și return values sunt baza pentru secțiunile următoare.
 
 Concepte-cheie:
-- `println!` este macro-ul standard pentru afișare.
-- `fn nume(...) -> tip` definește o funcție care întoarce o valoare.
-- Lipsa lui `;` pe ultima expresie permite return implicit.
+- `println!` este macro-ul standard pentru output.
+- `fn name(...) -> type` definește o function care întoarce o value.
+- Lipsa lui `;` pe ultima expression permite implicit return.
 
 Capcană frecventă:
-- Dacă pui `;` la finalul expresiei returnate, funcția nu mai întoarce valoarea așteptată.
+- Dacă pui `;` la finalul expresiei returnate, function nu mai întoarce expected value.
 
 Exemplu minim:
 `fn give_number() -> i32 { 8 } println!("{}", give_number());`
@@ -129,21 +129,42 @@ Scor înțelegere: 10/10
 
 ## 1.7
 
-1. Secțiunea introduce declararea variabilelor cu `let` și utilizarea blocurilor de cod `{}`.
-2. O variabilă trăiește doar în interiorul blocului în care este declarată (scope/lifetime).
+1. Secțiunea introduce variable declaration cu `let` și folosirea de `code blocks` (`{}`).
+2. O variabilă trăiește doar în interiorul block-ului în care este declarată (`scope`/`lifetime`).
 3. `println!` permite atât forma cu argument după virgulă, cât și captura directă în șablon (`{my_number}`).
-4. Un bloc poate returna o valoare dacă ultima expresie nu are `;`.
-5. Concluzia practică: controlezi viața variabilelor și rezultatul blocurilor prin poziția codului și semicolon.
+4. Un `code block` poate returna o value dacă ultima expression nu are `;`.
+5. Concluzia practică: controlezi `lifetime` și rezultatul block-urilor prin poziția codului și `semicolon`.
 
 Concepte-cheie:
-- `let` declară variabile.
-- Scope-ul este delimitat de `{}`.
-- Fără `;` la ultima expresie, blocul returnează o valoare.
+- `let` face variable declaration.
+- `scope` este delimitat de `{}`.
+- Fără `;` la ultima expression, block-ul returnează o value.
 
 Capcană frecventă:
-- Dacă adaugi `;` la finalul expresiei din bloc, primești `()` în locul valorii așteptate.
+- Dacă adaugi `;` la finalul expresiei din block, primești `()` în locul expected value.
 
 Exemplu minim:
 `let x = { let y = 8; y + 9 };`
+
+Scor înțelegere: 10/10
+
+## 1.8
+
+1. Secțiunea explică diferența dintre `Display` print (`{}`) și `Debug` print (`{:?}`).
+2. Unele tipuri nu implementează `Display`, dar pot fi afișate cu `Debug`.
+3. `Debug pretty` (`{:#?}`) afișează datele pe linii separate, mai ușor de citit.
+4. `print!` nu adaugă `new line`, în timp ce `println!` adaugă automat `new line`.
+5. Concluzia practică: alegi formatter-ul (`Display`/`Debug`) în funcție de tip și scopul output-ului.
+
+Concepte-cheie:
+- `{}` folosește `Display` formatter.
+- `{:?}` și `{:#?}` folosesc `Debug` formatter.
+- `print!` vs `println!` diferă prin `new line` behavior.
+
+Capcană frecventă:
+- Încercarea de a afișa cu `{}` un tip care nu implementează `Display` produce compiler error.
+
+Exemplu minim:
+`let doesnt_print = (); println!("{:?}", doesnt_print);`
 
 Scor înțelegere: _/10
