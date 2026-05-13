@@ -16,6 +16,7 @@ mod chapter1 {
         lunches_1_7();
         lunches_1_8();
         lunches_1_9();
+        lunches_1_10();
     }
 
     fn lunches_1_1() {
@@ -238,6 +239,29 @@ mod chapter1 {
             u128::MIN,
             u128::MAX
         );
+    }
+
+    fn lunches_1_10() {
+        // ----- 1.10 Mutability -----
+        // `let` face variabilele immutable; `mut` permite changing the value.
+
+        let immutable_number = 8;
+        println!("immutable_number = {}", immutable_number);
+
+        let mut mutable_number = 8;
+        println!("mutable_number starts as {}", mutable_number);
+        mutable_number = 10;
+        println!("mutable_number = {}", mutable_number);
+
+        // `mut` schimbă valoarea, nu type-ul variabilei.
+        let mut my_variable = 8;
+        println!("my_variable starts as integer: {}", my_variable);
+
+        // Exemplul invalid din carte ar arăta așa:
+        // my_variable = "Hello, world!";
+        // În Rust, asta produce compiler error pentru mismatched types.
+        my_variable = 12;
+        println!("my_variable after changing value = {}", my_variable);
     }
 }
 

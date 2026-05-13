@@ -189,3 +189,24 @@ Exemplu minim:
 `println!("{} {}", i32::MIN, i32::MAX);`
 
 Scor înțelegere: _/10
+
+## 1.10
+
+1. Secțiunea arată că variabilele declarate cu `let` sunt `immutable` dacă nu adaugi `mut`.
+2. Cu `mut`, poți schimba valoarea variabilei, dar nu și `type`-ul ei.
+3. Dacă încerci să pui o valoare de alt `type`, primești un `mismatched types` error.
+4. `mut` este despre changing values, nu despre changing types.
+5. Concluzia practică: folosești `mut` când ai nevoie de o valoare care se modifică, dar păstrezi același `type`.
+
+Concepte-cheie:
+- `let` fără `mut` => `immutable`.
+- `mut` permite changing the value.
+- `type` rămâne același chiar dacă variabila este `mut`.
+
+Capcană frecventă:
+- Să crezi că `mut` îți permite să schimbi și `type`-ul variabilei.
+
+Exemplu minim:
+`let mut my_number = 8; my_number = 10;`
+
+Scor înțelegere: _/10
