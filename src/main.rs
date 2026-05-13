@@ -13,6 +13,7 @@ mod chapter1 {
         lunches_1_4();
         lunches_1_5();
         lunches_1_6();
+        lunches_1_7();
     }
 
     fn lunches_1_1() {
@@ -131,6 +132,34 @@ mod chapter1 {
     fn lunches_1_6_multiply(number_one: i32, number_two: i32) -> i32 {
         // Putem întoarce direct expresia finală.
         number_one * number_two
+    }
+
+    fn lunches_1_7() {
+        // ----- 1.7 Declaring variables and code blocks -----
+        // Variabile declarate cu `let` și exemple de code blocks `{}`.
+
+        let my_number = 8;
+        println!("Hello, number {}", my_number);
+        println!("Hello, number {my_number}");
+
+        let color1 = "red";
+        let color2 = "blue";
+        let color3 = "green";
+        println!("I like {color1} and {color2} and {color3}");
+
+        // Un bloc poate returna o valoare către variabila de afară.
+        let number_from_block = {
+            let second_number = 8;
+            second_number + 9
+        };
+        println!("My number is: {}", number_from_block);
+
+        // Dacă punem `;` la finalul expresiei din bloc, blocul întoarce `()`.
+        let unit_from_block = {
+            let second_number = 8;
+            let _ = second_number + 9;
+        };
+        println!("Block with semicolon returns: {:?}", unit_from_block);
     }
 }
 

@@ -1,4 +1,5 @@
-# Notițe carte Rust
+# Notițe carte Rust 
+# Learn Rust in a Month of Lunches
 
 ## 1.1
 
@@ -123,5 +124,26 @@ Capcană frecventă:
 
 Exemplu minim:
 `fn give_number() -> i32 { 8 } println!("{}", give_number());`
+
+Scor înțelegere: 10/10
+
+## 1.7
+
+1. Secțiunea introduce declararea variabilelor cu `let` și utilizarea blocurilor de cod `{}`.
+2. O variabilă trăiește doar în interiorul blocului în care este declarată (scope/lifetime).
+3. `println!` permite atât forma cu argument după virgulă, cât și captura directă în șablon (`{my_number}`).
+4. Un bloc poate returna o valoare dacă ultima expresie nu are `;`.
+5. Concluzia practică: controlezi viața variabilelor și rezultatul blocurilor prin poziția codului și semicolon.
+
+Concepte-cheie:
+- `let` declară variabile.
+- Scope-ul este delimitat de `{}`.
+- Fără `;` la ultima expresie, blocul returnează o valoare.
+
+Capcană frecventă:
+- Dacă adaugi `;` la finalul expresiei din bloc, primești `()` în locul valorii așteptate.
+
+Exemplu minim:
+`let x = { let y = 8; y + 9 };`
 
 Scor înțelegere: _/10
