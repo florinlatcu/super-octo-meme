@@ -1,6 +1,27 @@
 # Notițe carte Rust 
 # Learn Rust in a Month of Lunches
 
+## Sumar Capitolul 1
+
+Capitolul 1 pune bazele în Rust și explică ideile care apar cel mai des mai târziu.
+Încep cu cum pornește un program și cum arată un `Hello, world!`, apoi trec la comentarii, tipuri primitive, `type inference`, `floats`, `function` output, `scope`, `Display`/`Debug`, limite numerice, `mutability` și `shadowing`.
+Ideea mare este că Rust te ajută mult cu `compiler`-ul: îți arată erori clare și te ghidează spre soluția corectă.
+În acest capitol învăț să citesc `type`-urile cu atenție, să folosesc `let` și `mut`, să înțeleg `code blocks` și să aleg între `Display` și `Debug`.
+Concluzia mea pentru Capitolul 1 este că Rust pare strict la început, dar strictness-ul lui te ajută să scrii cod mai bun și mai sigur.
+
+Concepte-cheie:
+- `main` este punctul de intrare al programului.
+- `let`, `mut`, `scope`, `shadowing`, `Display`, `Debug`, `MIN` și `MAX` apar des și trebuie înțelese bine.
+- `compiler`-ul oferă feedback util și te ajută să corectezi problemele din timp.
+
+Capcană frecventă:
+- Să amesteci concepte care seamănă, dar sunt diferite: `mut` vs `shadowing`, `Display` vs `Debug`, bytes vs characters, `f32` vs `f64`.
+
+Exemplu minim:
+`fn main() { println!("Hello, world!"); }`
+
+Scor înțelegere: 10/10
+
 ## 1.1
 
 1. Secțiunea introduce primul contact practic cu Rust.
@@ -230,4 +251,4 @@ Capcană frecventă:
 Exemplu minim:
 `let x = 8; let x = 9.2; println!("{}", x);`
 
-Scor înțelegere: _/10
+Scor înțelegere: 10/10
