@@ -168,3 +168,24 @@ Exemplu minim:
 `let doesnt_print = (); println!("{:?}", doesnt_print);`
 
 Scor înțelegere: _/10
+
+## 1.9
+
+1. Secțiunea arată cum afli limitele numerice folosind `MIN` și `MAX` pentru fiecare numeric type.
+2. Valorile se accesează ca `associated consts` prin `::` (ex: `i32::MIN`, `u64::MAX`).
+3. Exemplele acoperă mai multe integer types: `i8/u8`, `i16/u16`, `i32/u32`, `i64/u64`, `i128/u128`.
+4. `MIN` și `MAX` sunt scrise cu majuscule deoarece sunt `const values`.
+5. Concluzia practică: când ai nevoie de limite sigure pentru validări, folosești direct `Type::MIN` și `Type::MAX`.
+
+Concepte-cheie:
+- `associated const` accesat cu `Type::CONST`.
+- `signed` vs `unsigned` numeric ranges.
+- `MIN`/`MAX` oferă limitele exacte pentru type-ul ales.
+
+Capcană frecventă:
+- Folosirea unui range greșit pentru type-ul variabilei (ex: presupui range de `i32`, dar variabila e `u8`).
+
+Exemplu minim:
+`println!("{} {}", i32::MIN, i32::MAX);`
+
+Scor înțelegere: _/10
