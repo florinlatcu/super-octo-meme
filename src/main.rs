@@ -17,6 +17,7 @@ mod chapter1 {
         lunches_1_8();
         lunches_1_9();
         lunches_1_10();
+        lunches_1_11();
     }
 
     fn lunches_1_1() {
@@ -262,6 +263,45 @@ mod chapter1 {
         // În Rust, asta produce compiler error pentru mismatched types.
         my_variable = 12;
         println!("my_variable after changing value = {}", my_variable);
+    }
+
+    fn lunches_1_11() {
+        // ----- 1.11 Shadowing -----
+        // `shadowing` înseamnă să declari o variabilă nouă cu același nume.
+
+        let my_number = 8;
+        println!("my_number (first binding) = {}", my_number);
+
+        let my_number = 9.2;
+        println!("my_number (shadowed binding) = {}", my_number);
+
+        let my_number = 10;
+        println!("my_number (shadowed again) = {}", my_number);
+
+        let final_number = {
+            let y = 10;
+            let x = 9;
+            let x = times_two(x);
+            let x = x + y;
+            x
+        };
+        println!("The number is now: {}", final_number);
+
+        let final_number_without_shadowing = {
+            let y = 10;
+            let x = 9;
+            let x_twice = times_two(x);
+            let x_twice_and_y = x_twice + y;
+            x_twice_and_y
+        };
+        println!(
+            "The number without shadowing is now: {}",
+            final_number_without_shadowing
+        );
+    }
+
+    fn times_two(number: i32) -> i32 {
+        number * 2
     }
 }
 

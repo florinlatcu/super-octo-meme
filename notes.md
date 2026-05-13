@@ -209,4 +209,25 @@ Capcană frecventă:
 Exemplu minim:
 `let mut my_number = 8; my_number = 10;`
 
+Scor înțelegere: 10/10
+
+## 1.11
+
+1. Secțiunea explică `shadowing`: poți declara o variabilă nouă cu același nume ca una existentă.
+2. `shadowing` nu este același lucru cu `mut`; aici creezi un nou `binding`, nu schimbi doar valoarea.
+3. Un `shadowed` value poate avea alt `type`, iar vechiul `binding` rămâne ascuns în același `scope`.
+4. `shadowing` este util când refolosești un nume și nu vrei să inventezi mereu alt `variable name`.
+5. Concluzia practică: folosești `shadowing` pentru pași succesivi pe aceeași idee, mai ales în block-uri mici.
+
+Concepte-cheie:
+- `shadowing` creează un nou `binding` cu același nume.
+- `scope` decide ce `binding` este vizibil.
+- Poți schimba și `type`-ul între `shadowed` bindings.
+
+Capcană frecventă:
+- Să confunzi `shadowing` cu `mut`; ele par similare, dar funcționează diferit.
+
+Exemplu minim:
+`let x = 8; let x = 9.2; println!("{}", x);`
+
 Scor înțelegere: _/10
