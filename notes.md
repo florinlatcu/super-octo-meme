@@ -273,3 +273,24 @@ Exemplu minim:
 `let value = 15; let reference = &value; let text = String::from("Hello");`
 
 Scor înțelegere: 10/10
+
+## 2.2
+
+1. Secțiunea explică cele două tipuri principale de string: `String` și `&str`.
+2. `&str` este un `string slice` (pointer + length), adică o vedere peste date, fără ownership.
+3. `String` este tip `owned`, cu date pe `heap`, și este mai ușor de modificat (grow/shrink/mutate).
+4. Atât `String`, cât și `&str` folosesc UTF-8, deci pot conține text Unicode (inclusiv nume internaționale și emoji).
+5. Concluzia practică: `str` simplu nu poate fi folosit direct ca variabilă locală; în practică lucrezi cu `&str` sau `String`.
+
+Concepte-cheie:
+- `&str` = `slice` peste text, fără ownership.
+- `String` = tip `owned` cu date pe `heap`.
+- `size_of` vs `size_of_val` te ajută să vezi diferența dintre tip fix (`Sized`) și valoare dinamică.
+
+Capcană frecventă:
+- Să scrii `let x: str = "...";` în loc de `let x: &str = "...";`.
+
+Exemplu minim:
+`let a: &str = "Hello"; let b = String::from(a); let c = format!("{}!", b);`
+
+Scor înțelegere: 10/10

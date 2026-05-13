@@ -35,6 +35,7 @@ Funcțiile din `main.rs` folosesc prefixul `lunches_` ca să fie clar că lucrez
 ## Progress tracker (capitolul 2)
 
 - [x] 2.1
+- [x] 2.2
 
 ## Ritm de studiu
 
