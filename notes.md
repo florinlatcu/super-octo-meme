@@ -3,19 +3,19 @@
 
 ## Sumar Capitolul 1
 
-Capitolul 1 pune bazele în Rust și explică ideile care apar cel mai des mai târziu.
-Încep cu cum pornește un program și cum arată un `Hello, world!`, apoi trec la comentarii, tipuri primitive, `type inference`, `floats`, `function` output, `scope`, `Display`/`Debug`, limite numerice, `mutability` și `shadowing`.
-Ideea mare este că Rust te ajută mult cu `compiler`-ul: îți arată erori clare și te ghidează spre soluția corectă.
-În acest capitol învăț să citesc `type`-urile cu atenție, să folosesc `let` și `mut`, să înțeleg `code blocks` și să aleg între `Display` și `Debug`.
-Concluzia mea pentru Capitolul 1 este că Rust pare strict la început, dar strictness-ul lui te ajută să scrii cod mai bun și mai sigur.
+Capitolul 1, `Some basics`, este o introducere ușoară și variată în Rust.
+Cartea spune încă de la început că, în Rust, chiar și exemplele simple pun accent pe `bits`, `bytes` și pe felul în care `type`-urile sunt tratate cu grijă.
+Ideea centrală este strictness-ul `compiler`-ului: dacă nu e mulțumit, programul nu rulează, dar îți oferă și `hints` și `suggestions` ca să repari mai repede problema.
+Pe parcurs, capitolul acoperă `Introducing Rust`, `comments`, `primitive types`, `type inference`, `Hello, World! and printing`, `declaring variables and code blocks`, `Display` și `Debug`, `smallest and largest numbers`, `mutability` și `shadowing`.
+Concluzia mea este că primul capitol te obișnuiește cu felul de a gândi din Rust: mai strict la început, dar foarte util pentru a înțelege mai bine codul și pentru a scrie programe mai sigure.
 
 Concepte-cheie:
 - `main` este punctul de intrare al programului.
-- `let`, `mut`, `scope`, `shadowing`, `Display`, `Debug`, `MIN` și `MAX` apar des și trebuie înțelese bine.
+- Capitolul urmărește o ordine clară: introducere, comments, types, `Hello, World!`, blocks, printing, limits, mutability și shadowing.
 - `compiler`-ul oferă feedback util și te ajută să corectezi problemele din timp.
 
 Capcană frecventă:
-- Să amesteci concepte care seamănă, dar sunt diferite: `mut` vs `shadowing`, `Display` vs `Debug`, bytes vs characters, `f32` vs `f64`.
+- Să amesteci concepte care seamănă, dar sunt diferite: `mut` vs `shadowing`, `Display` vs `Debug`, `bytes` vs `characters`, `f32` vs `f64`.
 
 Exemplu minim:
 `fn main() { println!("Hello, world!"); }`
@@ -250,5 +250,26 @@ Capcană frecventă:
 
 Exemplu minim:
 `let x = 8; let x = 9.2; println!("{}", x);`
+
+Scor înțelegere: 10/10
+
+## 2.1
+
+1. Secțiunea introduce ideea că `stack` și `heap` sunt două locuri diferite pentru memorie, iar `stack` este de obicei mai rapid.
+2. Pentru tipuri simple și cu dimensiune cunoscută la compile time, Rust poate pune valorile pe `stack`.
+3. Pentru date cu dimensiune variabilă, cum este `String`, valoarea reală stă pe `heap`, iar pe `stack` apare doar un `pointer` sau o referință.
+4. `&str` este prezentat ca un `string slice`, adică o referință la textul respectiv, în timp ce `String` este un tip `owned`.
+5. Concluzia practică este că `references`, `String`, `&str` și ideea de `Sized` sunt baza pentru restul capitolului despre memorie și ownership.
+
+Concepte-cheie:
+- `stack` este rapid și folosește memorie cu dimensiune cunoscută.
+- `heap` este folosit pentru date cu dimensiune variabilă.
+- `&` creează o `reference`, iar `String` deține datele.
+
+Capcană frecventă:
+- Să încerci să tratezi un `str` ca și cum ar avea dimensiune fixă; în realitate, ai nevoie de `&str`.
+
+Exemplu minim:
+`let value = 15; let reference = &value; let text = String::from("Hello");`
 
 Scor înțelegere: 10/10
