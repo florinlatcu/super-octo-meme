@@ -1,9 +1,7 @@
-mod chapter1;
-mod chapter2;
+mod learn_rust_in_a_month_of_lunches;
 
 fn main() {
     // Punctul de intrare al programului.
     // Rulează exercițiile pentru capitolele parcurse din cartea "Month of Lunches".
-    chapter1::run();
-    chapter2::run();
+    learn_rust_in_a_month_of_lunches::run();
 }

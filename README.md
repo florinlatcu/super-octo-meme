@@ -10,9 +10,10 @@ Când citesc explicațiile în română, înțeleg mai bine conceptele și pot f
 
 ## Cum este organizat proiectul
 
-- `src/main.rs` – exemple și exerciții implementate pe secțiuni din carte.
+- `src/main.rs` – punctul de intrare al aplicației.
+- `src/learn_rust_in_a_month_of_lunches/` – modulele capitolelor pentru cartea curentă (`chapter1`, `chapter2`, ...).
 - `notes.md` – rezumate în format 5+3 (rezumat, concepte-cheie, capcană, exemplu minim) + scor de înțelegere.
-- `book/` – materialul sursă folosit pentru studiu.
+- `books/` – materialul sursă folosit pentru studiu.
 
 Funcțiile din `main.rs` folosesc prefixul `lunches_` ca să fie clar că lucrez pe cartea
 **Learn Rust in a Month of Lunches** (ex: `lunches_1_1`, `lunches_1_2`).
