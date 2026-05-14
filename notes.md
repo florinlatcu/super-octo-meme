@@ -315,3 +315,24 @@ Exemplu minim:
 `const NUMBER_OF_MONTHS: u32 = 12; static SEASONS: [&str; 4] = ["Spring", "Summer", "Fall", "Winter"];`
 
 Scor înțelegere: 10/10
+
+## 2.4
+
+1. Secțiunea aprofundează references și arată că poți avea mai multe immutable references către aceeași valoare.
+2. Un `&String` doar împrumută datele; ownership rămâne la valoarea originală.
+3. Exemplul-cheie arată că nu poți returna o referință către o variabilă locală creată în function.
+4. Motivul este `lifetime`: variabila locală este dropped la finalul block-ului, iar referința ar deveni invalidă.
+5. Concluzia practică: când datele trebuie să iasă din function, de obicei returnezi valoarea owned (ex: `String`), nu referință la local.
+
+Concepte-cheie:
+- `&T` = borrow, nu transfer de ownership.
+- Mai multe immutable references sunt permise.
+- Nu returnezi referință la date care mor la finalul funcției.
+
+Capcană frecventă:
+- Să încerci `fn f() -> &String` când `String` este creat în interiorul acelei funcții.
+
+Exemplu minim:
+`fn return_owned_country() -> String { String::from("Austria") }`
+
+Scor înțelegere: 10/10

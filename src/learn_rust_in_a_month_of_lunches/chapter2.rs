@@ -3,6 +3,7 @@ pub fn run() {
     lunches_2_1();
     lunches_2_2();
     lunches_2_3();
+    lunches_2_4();
 }
 
 fn lunches_2_1() {
@@ -97,4 +98,31 @@ fn lunches_2_3() {
     println!("Days in a week: {}", DAYS_IN_WEEK);
 
     // Ideea principală: const/static trăiesc pe toată durata programului.
+}
+
+fn lunches_2_4() {
+    // ----- 2.4 More on references -----
+    // Referințe multiple immutable și de ce nu poți returna referință la date locale.
+
+    let country = String::from("Austria");
+    let ref_one = &country;
+    let ref_two = &country;
+
+    println!("country via ref_one: {}", ref_one);
+    println!("country via ref_two: {}", ref_two);
+
+    // Exemplu invalid din carte (nu compilează, explicativ):
+    // fn return_str() -> &String {
+    //     let country = String::from("Austria");
+    //     let country_ref = &country;
+    //     country_ref
+    // }
+    // Problema: `country` moare la finalul funcției, iar referința ar deveni dangling.
+
+    let country_owned = return_owned_country();
+    println!("owned return works: {}", country_owned);
+}
+
+fn return_owned_country() -> String {
+    String::from("Austria")
 }
