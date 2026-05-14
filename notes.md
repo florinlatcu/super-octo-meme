@@ -336,3 +336,67 @@ Exemplu minim:
 `fn return_owned_country() -> String { String::from("Austria") }`
 
 Scor înțelegere: 10/10
+
+## 2.5
+
+### 2.5 Mutable references
+
+1. Secțiunea introduce `mutable references`, adică `&mut`, care permit modificarea valorii împrumutate.
+2. Când lucrezi cu o referință, folosești dereferencing cu `*` ca să ajungi la valoarea din spatele referinței.
+3. Un mod simplu de memorare din carte: `&` face referencing, iar `*` face dereferencing (opusul lui `&`).
+4. Exemplul principal arată `*num_ref += 10`, unde modificarea se face prin `&mut`.
+5. Concluzia practică: `&mut` este puternic, dar vine cu reguli stricte ca să prevină memory bugs.
+
+### 2.5.1 Rust’s reference rules
+
+Regula 1 (`immutable references`):
+- poți avea oricâte `&T` către aceeași valoare (1, 3, 1000…)
+- este sigur pentru că toate doar citesc
+
+Regula 2 (`mutable references`):
+- poți avea un singur `&mut T` activ la un moment dat
+- nu poți combina un `&mut T` activ cu `&T` active pe aceeași valoare
+
+Intuiția: dacă cineva modifică datele, ceilalți cititori nu trebuie să citească simultan ceva care se schimbă.
+
+### 2.5.2 Situation 1: Only one mutable reference
+
+Această situație este validă:
+- ai o valoare mutabilă
+- creezi un singur `&mut`
+- modifici prin referință
+
+Este safe pentru că există un singur „editor” al datelor în acel moment.
+
+### 2.5.3 Situation 2: Only immutable references
+
+Această situație este tot validă:
+- poți avea multe `&` în paralel
+- toate doar citesc
+
+Este safe pentru că nu există write concurrent în timp ce se citește.
+
+### 2.5.4 Situation 3: The problem situation
+
+Situația invalidă este:
+- există deja un `&` activ (reader)
+- încerci să creezi `&mut` (writer) pe aceeași valoare
+
+Compilatorul blochează asta (`cannot borrow as mutable because it is also borrowed as immutable`), tocmai ca să prevină comportament neașteptat.
+
+Detaliu important din carte:
+- compilatorul modern înțelege mai bine `lifetime`-urile locale (`non-lexical lifetimes`)
+- dacă `&mut` nu mai este folosit, poate permite ulterior un `&` în același block, atâta timp cât nu se suprapun efectiv
+
+Concepte-cheie:
+- `&mut` + `*` pentru modificare prin referință.
+- Multe `&` sunt OK; un singur `&mut` activ este OK.
+- `&` și `&mut` active simultan pe aceeași valoare nu sunt OK.
+
+Capcană frecventă:
+- Să crezi că ordinea liniilor este suficientă; de fapt contează unde sunt încă active borrow-urile.
+
+Exemplu minim:
+`let mut n = 8; let r = &mut n; *r += 10; let read = &n; println!("{}", read);`
+
+Scor înțelegere: 10/10

@@ -4,6 +4,7 @@ pub fn run() {
     lunches_2_2();
     lunches_2_3();
     lunches_2_4();
+    lunches_2_5();
 }
 
 fn lunches_2_1() {
@@ -125,4 +126,68 @@ fn lunches_2_4() {
 
 fn return_owned_country() -> String {
     String::from("Austria")
+}
+
+fn lunches_2_5() {
+    // ----- 2.5 Mutable references -----
+    // `&mut` permite schimbarea datelor împrumutate prin dereferencing (`*`).
+
+    let mut my_number = 8;
+    let num_ref = &mut my_number;
+    *num_ref += 10;
+    println!("mutable ref changed number to: {}", my_number);
+
+    let second_number = 800;
+    let triple_reference = &&&second_number;
+    println!(
+        "Are they equal? {}",
+        second_number == ***triple_reference
+    );
+
+    // 2.5.1 / 2.5.2 / 2.5.3 / 2.5.4 – reguli și situații.
+    situation_1_only_one_mutable_reference();
+    situation_2_only_immutable_references();
+    situation_3_problem_situation_explained();
+    non_lexical_lifetime_valid_pattern();
+}
+
+fn situation_1_only_one_mutable_reference() {
+    // Situația 1: un singur mutable reference este OK.
+    let mut value = 10;
+    let value_change = &mut value;
+    *value_change += 5;
+    println!("Situation 1 (one mutable ref): {}", value);
+}
+
+fn situation_2_only_immutable_references() {
+    // Situația 2: oricâte immutable references sunt OK.
+    let value = String::from("Presentation");
+    let r1 = &value;
+    let r2 = &value;
+    let r3 = &value;
+    println!("Situation 2 (immutable refs): {}, {}, {}", r1, r2, r3);
+}
+
+fn situation_3_problem_situation_explained() {
+    // Situația 3 (problemă): immutable + mutable active în același timp => compiler error.
+    // Exemplu INVALID din carte (comentat intenționat, nu compilează):
+    // let mut number = 10;
+    // let number_ref = &number;
+    // let number_change = &mut number;
+    // *number_change += 10;
+    // println!("{}", number_ref);
+
+    println!(
+        "Situation 3: mixed immutable+mutable borrow at same time is rejected by compiler."
+    );
+}
+
+fn non_lexical_lifetime_valid_pattern() {
+    // Pattern valid din carte (NLL): mutable borrow se termină când nu mai e folosit.
+    let mut number = 10;
+    let number_change = &mut number;
+    *number_change += 10;
+
+    let number_ref = &number;
+    println!("NLL valid pattern result: {}", number_ref);
 }
