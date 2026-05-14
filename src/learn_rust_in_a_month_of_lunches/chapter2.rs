@@ -2,6 +2,7 @@ pub fn run() {
     // ===== Capitolul 2: Memory, variables, and ownership =====
     lunches_2_1();
     lunches_2_2();
+    lunches_2_3();
 }
 
 fn lunches_2_1() {
@@ -74,4 +75,26 @@ fn lunches_2_2() {
     // Exemplul invalid din carte (doar ca notă, nu compilează):
     // let my_name: str = "My name";
     // Corect: let my_name: &str = "My name";
+}
+
+const NUMBER_OF_MONTHS: u32 = 12;
+static SEASONS: [&str; 4] = ["Spring", "Summer", "Fall", "Winter"];
+
+fn print_months() {
+    println!("Number of months in the year: {NUMBER_OF_MONTHS}");
+}
+
+fn lunches_2_3() {
+    // ----- 2.3 const and static -----
+    // Exemple de valori globale declarate cu `const` și `static`.
+
+    print_months();
+    println!("Seasons count: {}", SEASONS.len());
+    println!("First season: {}", SEASONS[0]);
+
+    // Rust nu face type inference pentru const/static, de aceea tipul e explicit.
+    const DAYS_IN_WEEK: u8 = 7;
+    println!("Days in a week: {}", DAYS_IN_WEEK);
+
+    // Ideea principală: const/static trăiesc pe toată durata programului.
 }

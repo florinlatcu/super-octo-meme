@@ -188,7 +188,7 @@ Capcană frecventă:
 Exemplu minim:
 `let doesnt_print = (); println!("{:?}", doesnt_print);`
 
-Scor înțelegere: _/10
+Scor înțelegere: 10/10
 
 ## 1.9
 
@@ -292,5 +292,26 @@ Capcană frecventă:
 
 Exemplu minim:
 `let a: &str = "Hello"; let b = String::from(a); let c = format!("{}!", b);`
+
+Scor înțelegere: 10/10
+
+## 2.3
+
+1. Secțiunea introduce două moduri de a declara valori fără `let`: `const` și `static`.
+2. Pentru ambele, trebuie să specifici explicit `type`-ul (nu există type inference aici).
+3. `const` este pentru valori fixe evaluate la compile time, iar `static` este similar, dar are fixed memory location.
+4. Valorile globale (`const`/`static`) se declară de obicei cu nume în ALL CAPS și pot fi accesate din orice function.
+5. Concluzia practică: `const` și `static` sunt bune pentru date globale stabile, dar nu înlocuiesc variabilele obișnuite cu `let`.
+
+Concepte-cheie:
+- `const` = valoare constantă cu `type` explicit.
+- `static` = valoare globală cu fixed location.
+- Valorile globale nu sunt dropped ca variabilele locale.
+
+Capcană frecventă:
+- Să încerci să pui în `const`/`static` ceva care depinde de runtime sau necesită heap allocation la compile time.
+
+Exemplu minim:
+`const NUMBER_OF_MONTHS: u32 = 12; static SEASONS: [&str; 4] = ["Spring", "Summer", "Fall", "Winter"];`
 
 Scor înțelegere: 10/10

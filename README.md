@@ -36,6 +36,7 @@ Funcțiile din `main.rs` folosesc prefixul `lunches_` ca să fie clar că lucrez
 
 - [x] 2.1
 - [x] 2.2
+- [x] 2.3
 
 ## Ritm de studiu
 
