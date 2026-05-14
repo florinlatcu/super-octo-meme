@@ -10,6 +10,7 @@ pub fn run() {
 }
 
 fn lunches_2_1() {
+    println!("\n=== 2.1 The stack, the heap, pointers, and references ===");
     // ----- 2.1 The stack, the heap, pointers, and references -----
     // Exemple de references, String și &str, plus dimensiuni în bytes.
 
@@ -43,6 +44,7 @@ fn lunches_2_1() {
 }
 
 fn lunches_2_2() {
+    println!("\n=== 2.2 Strings ===");
     // ----- 2.2 Strings -----
     // Diferențe între `String` și `&str`, plus exemple UTF-8 și mărimi în bytes.
 
@@ -85,10 +87,12 @@ const NUMBER_OF_MONTHS: u32 = 12;
 static SEASONS: [&str; 4] = ["Spring", "Summer", "Fall", "Winter"];
 
 fn print_months() {
+    println!("[2.3] print_months()");
     println!("Number of months in the year: {NUMBER_OF_MONTHS}");
 }
 
 fn lunches_2_3() {
+    println!("\n=== 2.3 const and static ===");
     // ----- 2.3 const and static -----
     // Exemple de valori globale declarate cu `const` și `static`.
 
@@ -104,6 +108,7 @@ fn lunches_2_3() {
 }
 
 fn lunches_2_4() {
+    println!("\n=== 2.4 More on references ===");
     // ----- 2.4 More on references -----
     // Referințe multiple immutable și de ce nu poți returna referință la date locale.
 
@@ -127,10 +132,12 @@ fn lunches_2_4() {
 }
 
 fn return_owned_country() -> String {
+    println!("[2.4] return_owned_country()");
     String::from("Austria")
 }
 
 fn lunches_2_5() {
+    println!("\n=== 2.5 Mutable references ===");
     // ----- 2.5 Mutable references -----
     // `&mut` permite schimbarea datelor împrumutate prin dereferencing (`*`).
 
@@ -154,6 +161,7 @@ fn lunches_2_5() {
 }
 
 fn situation_1_only_one_mutable_reference() {
+    println!("--- 2.5.1 One mutable reference ---");
     // Situația 1: un singur mutable reference este OK.
     let mut value = 10;
     let value_change = &mut value;
@@ -162,6 +170,7 @@ fn situation_1_only_one_mutable_reference() {
 }
 
 fn situation_2_only_immutable_references() {
+    println!("--- 2.5.2 Multiple immutable references ---");
     // Situația 2: oricâte immutable references sunt OK.
     let value = String::from("Presentation");
     let r1 = &value;
@@ -171,6 +180,7 @@ fn situation_2_only_immutable_references() {
 }
 
 fn situation_3_problem_situation_explained() {
+    println!("--- 2.5.3 Problem situation (explained) ---");
     // Situația 3 (problemă): immutable + mutable active în același timp => compiler error.
     // Exemplu INVALID din carte (comentat intenționat, nu compilează):
     // let mut number = 10;
@@ -185,6 +195,7 @@ fn situation_3_problem_situation_explained() {
 }
 
 fn non_lexical_lifetime_valid_pattern() {
+    println!("--- 2.5.4 Non-lexical lifetime valid pattern ---");
     // Pattern valid din carte (NLL): mutable borrow se termină când nu mai e folosit.
     let mut number = 10;
     let number_change = &mut number;
@@ -195,6 +206,7 @@ fn non_lexical_lifetime_valid_pattern() {
 }
 
 fn lunches_2_6() {
+    println!("\n=== 2.6 Shadowing again ===");
     // ----- 2.6 Shadowing again -----
     // Shadowing blochează vechiul binding, dar nu distruge valoarea la care există referințe.
 
@@ -207,6 +219,7 @@ fn lunches_2_6() {
 }
 
 fn lunches_2_7() {
+    println!("\n=== 2.7 Giving references to functions ===");
     // ----- 2.7 Giving references to functions -----
     // Diferența dintre a da ownership (`String`) și a împrumuta (`&String` / `&mut String`).
 
@@ -231,18 +244,22 @@ fn lunches_2_7() {
 }
 
 fn print_country(country_name: String) {
+    println!("[2.7] print_country(String)");
     println!("{country_name}");
 }
 
 fn print_country_by_ref(country_name: &String) {
+    println!("[2.7] print_country_by_ref(&String)");
     println!("{country_name}");
 }
 
 fn add_hungary_by_mut_ref(country_name: &mut String) {
+    println!("[2.7] add_hungary_by_mut_ref(&mut String)");
     country_name.push_str("-Hungary");
 }
 
 fn add_hungary_owned(mut string_to_add_hungary_to: String) {
+    println!("[2.7] add_hungary_owned(String)");
     string_to_add_hungary_to.push_str("-Hungary");
     println!("Now it says: {}", string_to_add_hungary_to);
 }

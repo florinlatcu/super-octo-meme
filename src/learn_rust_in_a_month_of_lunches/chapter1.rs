@@ -14,6 +14,7 @@ pub fn run() {
 }
 
 fn lunches_1_1() {
+    println!("\n=== 1.1 Introducing Rust ===");
     // ----- 1.1 Introducing Rust -----
     // String mutabil + adăugare caracter + afișare.
     let mut my_name: String = "Dave".to_string();
@@ -22,6 +23,7 @@ fn lunches_1_1() {
 }
 
 fn lunches_1_2() {
+    println!("\n=== 1.2 Comments ===");
     // ----- 1.2 Comments -----
     // Programele Rust pornesc din fn main().
     // Codul este scris într-un bloc delimitat de { și }.
@@ -32,6 +34,7 @@ fn lunches_1_2() {
 }
 
 fn lunches_1_3() {
+    println!("\n=== 1.3 Primitive types ===");
     // ----- 1.3 Primitive types -----
     // Tipuri primitive, conversii și diferența bytes vs caractere.
 
@@ -64,6 +67,7 @@ fn lunches_1_3() {
 }
 
 fn lunches_1_4() {
+    println!("\n=== 1.4 Type inference ===");
     // ----- 1.4 Type inference -----
     // Rust alege tipuri implicite când nu specificăm explicit.
 
@@ -84,6 +88,7 @@ fn lunches_1_4() {
 }
 
 fn lunches_1_5() {
+    println!("\n=== 1.5 Floats ===");
     // ----- 1.5 Floats -----
     // Float-urile sunt numere cu punct zecimal: f32 și f64.
 
@@ -107,6 +112,7 @@ fn lunches_1_5() {
 }
 
 fn lunches_1_6() {
+    println!("\n=== 1.6 Hello, World! and printing ===");
     // ----- 1.6 “Hello, World!” and printing -----
     // Afișarea textului în consolă folosind println! și exemple simple de funcții.
     println!("Hello, world!");
@@ -132,6 +138,7 @@ fn lunches_1_6_multiply(number_one: i32, number_two: i32) -> i32 {
 }
 
 fn lunches_1_7() {
+    println!("\n=== 1.7 Declaring variables and code blocks ===");
     // ----- 1.7 Declaring variables and code blocks -----
     // Variabile declarate cu `let` și exemple de code blocks `{}`.
 
@@ -166,6 +173,7 @@ struct LunchesUser {
 }
 
 fn lunches_1_8() {
+    println!("\n=== 1.8 Display and Debug ===");
     // ----- 1.8 Display and Debug -----
     // `{}` => `Display`, `{:?}` => `Debug`, `{:#?}` => pretty `Debug`.
 
@@ -188,6 +196,7 @@ fn lunches_1_8() {
 }
 
 fn lunches_1_9() {
+    println!("\n=== 1.9 Smallest and largest numbers ===");
     // ----- 1.9 Smallest and largest numbers -----
     // MIN/MAX sunt associated consts pe tipurile numerice.
 
@@ -236,6 +245,7 @@ fn lunches_1_9() {
 }
 
 fn lunches_1_10() {
+    println!("\n=== 1.10 Mutability ===");
     // ----- 1.10 Mutability -----
     // `let` face variabilele immutable; `mut` permite changing the value.
 
@@ -259,6 +269,7 @@ fn lunches_1_10() {
 }
 
 fn lunches_1_11() {
+    println!("\n=== 1.11 Shadowing ===");
     // ----- 1.11 Shadowing -----
     // `shadowing` înseamnă să declari o variabilă nouă cu același nume.
 
