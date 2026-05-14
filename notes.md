@@ -421,3 +421,24 @@ Exemplu minim:
 `let country = String::from("Austria"); let country_ref = &country; let country = 8; println!("{country_ref} {country}");`
 
 Scor înțelegere: 10/10
+
+## 2.7
+
+1. Secțiunea explică cum ownership-ul interacționează cu function arguments.
+2. Dacă o function primește `String`, ea preia ownership (move), iar valoarea nu mai poate fi folosită după apel.
+3. Dacă primește `&String`, function doar împrumută datele și poți apela de mai multe ori fără să pierzi ownership-ul.
+4. Dacă primește `&mut String`, function poate modifica textul fără să devină owner.
+5. Concluzia practică: alegi `String` pentru transfer de ownership, `&String` pentru read-only borrow, `&mut String` pentru mutable borrow.
+
+Concepte-cheie:
+- `fn f(x: String)` => move în function.
+- `fn f(x: &String)` => read-only borrow.
+- `fn f(x: &mut String)` => mutable borrow.
+
+Capcană frecventă:
+- Să chemi de două ori o function care primește `String`, folosind aceeași variabilă (a doua folosire dă „use of moved value”).
+
+Exemplu minim:
+`let mut country = String::from("Austria"); add_hungary_by_mut_ref(&mut country); println!("{}", country);`
+
+Scor înțelegere: 10/10

@@ -6,6 +6,7 @@ pub fn run() {
     lunches_2_4();
     lunches_2_5();
     lunches_2_6();
+    lunches_2_7();
 }
 
 fn lunches_2_1() {
@@ -203,4 +204,45 @@ fn lunches_2_6() {
 
     println!("{country_ref} {country}");
     println!("{country_ref}, {country}");
+}
+
+fn lunches_2_7() {
+    // ----- 2.7 Giving references to functions -----
+    // Diferența dintre a da ownership (`String`) și a împrumuta (`&String` / `&mut String`).
+
+    // Dacă dăm un String direct, ownership se mută în funcție.
+    let country_moved = String::from("Austria");
+    print_country(country_moved);
+    // print_country(country_moved); // INVALID: value used here after move
+
+    // Cu &String putem apela de mai multe ori, fără să pierdem ownership.
+    let country_borrowed = String::from("Austria");
+    print_country_by_ref(&country_borrowed);
+    print_country_by_ref(&country_borrowed);
+
+    // Cu &mut String funcția poate modifica valoarea fără să o dețină.
+    let mut country_to_change = String::from("Austria");
+    add_hungary_by_mut_ref(&mut country_to_change);
+    println!("Now it says: {}", country_to_change);
+
+    // Dacă funcția primește String (nu &String), poate modifica intern după move.
+    let country_owned_move = String::from("Austria");
+    add_hungary_owned(country_owned_move);
+}
+
+fn print_country(country_name: String) {
+    println!("{country_name}");
+}
+
+fn print_country_by_ref(country_name: &String) {
+    println!("{country_name}");
+}
+
+fn add_hungary_by_mut_ref(country_name: &mut String) {
+    country_name.push_str("-Hungary");
+}
+
+fn add_hungary_owned(mut string_to_add_hungary_to: String) {
+    string_to_add_hungary_to.push_str("-Hungary");
+    println!("Now it says: {}", string_to_add_hungary_to);
 }
