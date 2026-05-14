@@ -5,6 +5,7 @@ pub fn run() {
     lunches_2_3();
     lunches_2_4();
     lunches_2_5();
+    lunches_2_6();
 }
 
 fn lunches_2_1() {
@@ -190,4 +191,16 @@ fn non_lexical_lifetime_valid_pattern() {
 
     let number_ref = &number;
     println!("NLL valid pattern result: {}", number_ref);
+}
+
+fn lunches_2_6() {
+    // ----- 2.6 Shadowing again -----
+    // Shadowing blochează vechiul binding, dar nu distruge valoarea la care există referințe.
+
+    let country = String::from("Austria");
+    let country_ref = &country;
+    let country = 8;
+
+    println!("{country_ref} {country}");
+    println!("{country_ref}, {country}");
 }

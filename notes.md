@@ -400,3 +400,24 @@ Exemplu minim:
 `let mut n = 8; let r = &mut n; *r += 10; let read = &n; println!("{}", read);`
 
 Scor înțelegere: 10/10
+
+## 2.6
+
+1. Secțiunea revine la `shadowing` și îl pune în contextul references/ownership.
+2. Ideea centrală: `shadowing` nu distruge vechiul value; doar ascunde binding-ul vechi cu unul nou.
+3. Dacă ai deja o referință la valoarea veche, acea referință rămâne validă chiar după shadowing.
+4. În exemplul din carte, `country_ref` continuă să pointeze la `"Austria"`, deși numele `country` este shadowed cu `8`.
+5. Concluzia practică: shadowing schimbă ce înseamnă un nume în scope, nu mută automat referințele deja create.
+
+Concepte-cheie:
+- `shadowing` creează un nou binding cu același nume.
+- References rămân legate de valoarea originală la care au fost create.
+- Același nume poate reprezenta tipuri diferite după shadowing.
+
+Capcană frecventă:
+- Să presupui că, după `let country = 8;`, o referință mai veche la `country` ar indica `8` (nu indică).
+
+Exemplu minim:
+`let country = String::from("Austria"); let country_ref = &country; let country = 8; println!("{country_ref} {country}");`
+
+Scor înțelegere: 10/10
