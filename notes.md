@@ -463,3 +463,24 @@ Exemplu minim:
 `let country = String::from("Kiribati"); prints_country_owned_2_8(country.clone()); prints_country_owned_2_8(country);`
 
 Scor înțelegere: 10/10
+
+## 2.9
+
+1. Secțiunea introduce variabilele neinițializate: au nume, dar încă nu au primit valoare.
+2. În Rust poți declara `let x: i32;`, însă nu poți folosi variabila până nu o inițializezi.
+3. Modelul util este: declari variabila în exterior, apoi îi dai valoare dintr-un block intern.
+4. Valoarea rămâne validă după block dacă owner-ul (variabila declarată în exterior) o deține.
+5. Concluzia practică: uneori e clar și elegant să separi „declarația” de „inițializare”, fără `mut` dacă setezi o singură dată.
+
+Concepte-cheie:
+- `uninitialized` = variabilă declarată, dar fără valoare încă.
+- Compilerul blochează folosirea înainte de inițializare.
+- Nu ai nevoie de `mut` dacă valoarea este atribuită o singură dată.
+
+Capcană frecventă:
+- Să încerci să afișezi o variabilă neinițializată; codul nu compilează.
+
+Exemplu minim:
+`let my_number; { let calculation_result = 57; my_number = calculation_result; } println!("{my_number}");`
+
+Scor înțelegere: 10/10

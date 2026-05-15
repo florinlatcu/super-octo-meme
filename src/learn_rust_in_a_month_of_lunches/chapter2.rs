@@ -8,6 +8,7 @@ pub fn run() {
     lunches_2_6();
     lunches_2_7();
     lunches_2_8();
+    lunches_2_9();
 }
 
 fn lunches_2_1() {
@@ -311,4 +312,28 @@ fn get_length_by_ref(input: &String) {
         "[2.8] referință -> It's {} words long.",
         input.split_whitespace().count()
     );
+}
+
+fn lunches_2_9() {
+    println!("\n=== 2.9 Variabile fără valori ===");
+    // ----- 2.9 Variabile fără valori -----
+    // O variabilă poate fi declarată fără valoare inițială, apoi inițializată mai târziu.
+
+    let my_variable: i32;
+    // println!("{}", my_variable); // INVALID: nu este inițializată încă.
+
+    let my_number;
+    {
+        let calculation_result = {
+            57
+        };
+        my_number = calculation_result;
+        println!("[2.9] în interiorul blocului: {my_number}");
+    }
+
+    println!("[2.9] după bloc: {my_number}");
+
+    // Nu e nevoie de `mut` dacă valoarea este setată o singură dată.
+    my_variable = 99;
+    println!("[2.9] my_variable inițializată ulterior: {my_variable}");
 }
