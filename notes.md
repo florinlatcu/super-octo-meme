@@ -614,3 +614,45 @@ Exemplu minim:
 `let tuple_of_three = ("one", "two", "three"); let (_, b, c) = tuple_of_three;`
 
 Scor înțelegere: 10/10
+
+## 3.2
+
+1. Secțiunea introduce `control flow`, adică modul în care programul alege ce cod să execute în funcție de situație.
+2. Ideea centrală este „dacă X este adevărat, execută A; altfel, execută B”.
+3. În practică, control flow apare în verificări de condiții, clasificări de valori și repetări.
+4. Rust oferă mai multe mecanisme: `if`, `match`, `loop`, `while`, `for`.
+5. Concluzia secțiunii: control flow face codul adaptiv, nu doar secvențial.
+
+Concepte-cheie:
+- Control flow = decizii + ramuri de execuție.
+- Condițiile booleene decid calea de rulare.
+- `if` este forma de bază de decizie.
+
+Capcană frecventă:
+- Să scrii condiții neclare sau suprapuse, ceea ce duce la logică greu de urmărit.
+
+Exemplu minim:
+`let n = 9; if n % 2 == 1 { println!("impar"); }`
+
+Scor înțelegere: 10/10
+
+## 3.2.1
+
+1. Subcapitolul prezintă forma de bază `if {}`: codul se execută doar dacă expresia este `true`.
+2. În Rust, compararea folosește `==`, iar `=` rămâne pentru asignare.
+3. Poți extinde decizia cu `else if` și `else` pentru mai multe ramuri.
+4. Condițiile se pot combina cu operatori logici `&&` (și) și `||` (sau).
+5. Concluzia practică: `if`/`else if`/`else` este nucleul deciziilor simple și clare în Rust.
+
+Concepte-cheie:
+- `if`, `else if`, `else` pentru ramificare.
+- `==` pentru comparație, `=` pentru asignare.
+- `&&` și `||` pentru condiții compuse.
+
+Capcană frecventă:
+- Confuzia între `==` și `=` în condiții.
+
+Exemplu minim:
+`if my_number % 2 == 1 && my_number > 0 { println!("pozitiv impar"); }`
+
+Scor înțelegere: 10/10

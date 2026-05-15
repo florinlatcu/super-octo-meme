@@ -4,6 +4,8 @@ pub fn run() {
     lunches_3_1_1();
     lunches_3_1_2();
     lunches_3_1_3();
+    lunches_3_2();
+    lunches_3_2_1();
 }
 
 fn lunches_3_1() {
@@ -171,6 +173,50 @@ fn lunches_3_1_3() {
     // Exemplu invalid din carte (comentat):
     // let (x, y) = tuple_of_three;
     // Nu compilează: pattern-ul nu se potrivește (2 vs 3 elemente).
+}
+
+fn lunches_3_2() {
+    println!("\n=== 3.2 Control flow ===");
+    // ----- 3.2 Control flow -----
+    // Control flow înseamnă să rulezi cod diferit în funcție de condiții.
+
+    let test_number = 9;
+    println!("[3.2] test_number = {test_number}");
+    println!("[3.2] par? {}", test_number % 2 == 0);
+    println!("[3.2] pozitiv? {}", test_number > 0);
+}
+
+fn lunches_3_2_1() {
+    println!("\n=== 3.2.1 Basic control flow ===");
+    // ----- 3.2.1 Basic control flow -----
+
+    let my_number = 5;
+
+    // if simplu
+    if my_number == 7 {
+        println!("[3.2.1] It's seven");
+    }
+
+    // if + else if + else
+    if my_number == 7 {
+        println!("[3.2.1] It's seven");
+    } else if my_number == 6 {
+        println!("[3.2.1] It's six");
+    } else {
+        println!("[3.2.1] It's a different number");
+    }
+
+    // condiții compuse cu && și ||
+    if my_number % 2 == 1 && my_number > 0 {
+        println!("[3.2.1] It's a positive odd number");
+    } else if my_number == 6 || my_number == -6 {
+        println!("[3.2.1] It's six in absolute value");
+    } else {
+        println!("[3.2.1] It's a different number");
+    }
+
+    // Notă din carte: în Rust nu ai nevoie de paranteze la if.
+    // if (my_number == 7) { ... } // compilează, dar parantezele sunt inutile.
 }
 
 fn do_something_unit() {
