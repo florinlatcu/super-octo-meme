@@ -593,3 +593,24 @@ Exemplu minim:
 `let mut v = Vec::with_capacity(8); v.push('a'); println!("{}", v.capacity());`
 
 Scor înțelegere: 10/10
+
+## 3.1.3
+
+1. Subcapitolul introduce tuples, colecții care pot ține tipuri diferite în același grup.
+2. Tuple-ul gol `()` este `unit type`; apare frecvent când o funcție nu returnează explicit nimic.
+3. Elementele unui tuple se accesează cu notație pe punct (`.0`, `.1`, `.2`), nu cu indexing de array.
+4. Destructurarea (`let (a, b, c) = tuple`) permite extragerea rapidă a valorilor în variabile separate.
+5. Concluzia practică: tuples sunt utile pentru grupări rapide de date eterogene, mai ales când structura e simplă și locală.
+
+Concepte-cheie:
+- Tuple = colecție fixă de valori posibil cu tipuri diferite.
+- `()` = unit type.
+- Pattern matching la destructurare trebuie să se potrivească exact.
+
+Capcană frecventă:
+- Pattern de destructurare greșit (ex: încerci `let (a, b)` pentru un tuple cu 3 elemente).
+
+Exemplu minim:
+`let tuple_of_three = ("one", "two", "three"); let (_, b, c) = tuple_of_three;`
+
+Scor înțelegere: 10/10

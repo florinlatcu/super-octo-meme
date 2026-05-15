@@ -3,6 +3,7 @@ pub fn run() {
     lunches_3_1();
     lunches_3_1_1();
     lunches_3_1_2();
+    lunches_3_1_3();
 }
 
 fn lunches_3_1() {
@@ -132,6 +133,48 @@ fn lunches_3_1_2() {
     let my_vec_inferred: Vec<_> = [9, 0, 10].into();
     println!("[3.1.2] into vec explicit: {:?}", my_vec_u8);
     println!("[3.1.2] into vec inferred: {:?}", my_vec_inferred);
+}
+
+fn lunches_3_1_3() {
+    println!("\n=== 3.1.3 Tuples ===");
+    // ----- 3.1.3 Tuples -----
+
+    // Tuple gol = unit type ().
+    let unit_value = do_something_unit();
+    println!("[3.1.3] unit value: {:?}", unit_value);
+    print_type_of("unit_value", &unit_value);
+
+    // Tuple cu tipuri diferite.
+    let random_tuple = ("Here is a name", 8, vec!['a'], 'b', [8, 9, 10], 7.7);
+    println!("[3.1.3] random_tuple.0 = {:?}", random_tuple.0);
+    println!("[3.1.3] random_tuple.1 = {:?}", random_tuple.1);
+    println!("[3.1.3] random_tuple.2 = {:?}", random_tuple.2);
+    println!("[3.1.3] random_tuple.3 = {:?}", random_tuple.3);
+    println!("[3.1.3] random_tuple.4 = {:?}", random_tuple.4);
+    println!("[3.1.3] random_tuple.5 = {:?}", random_tuple.5);
+    print_type_of("random_tuple", &random_tuple);
+
+    // Destructurare completă.
+    let strings = (
+        "one".to_string(),
+        "two".to_string(),
+        "three".to_string(),
+    );
+    let (a, b, c) = strings;
+    println!("[3.1.3] destructuring complet: a={a}, b={b}, c={c}");
+
+    // Potrivire de pattern cu _ pentru elemente nefolosite.
+    let tuple_of_three = ("one", "two", "three");
+    let (_, second, third) = tuple_of_three;
+    println!("[3.1.3] partial destructuring: second={second}, third={third}");
+
+    // Exemplu invalid din carte (comentat):
+    // let (x, y) = tuple_of_three;
+    // Nu compilează: pattern-ul nu se potrivește (2 vs 3 elemente).
+}
+
+fn do_something_unit() {
+    let _unused_number = 10;
 }
 
 fn print_type_of<T>(label: &str, _: &T) {
