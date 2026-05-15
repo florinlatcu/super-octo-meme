@@ -22,6 +22,50 @@ Exemplu minim:
 
 Scor înțelegere: 10/10
 
+## 3.1
+
+1. Secțiunea introduce `collection types`, adică structuri care țin mai multe valori într-un singur loc.
+2. În acest capitol apar trei tipuri principale: arrays, vectors și tuples.
+3. Arrays sunt mai simple și mai stricte (mărime fixă), vectors sunt mai flexibile (mărime dinamică), iar tuples pot grupa tipuri diferite.
+4. Ideea practică este să alegi colecția în funcție de nevoile de memorie, performanță și flexibilitate.
+5. Concluzia secțiunii: 3.1 setează cadrul pentru lucrul cu date compuse în Rust.
+
+Concepte-cheie:
+- `collections` = mai multe valori grupate logic.
+- Arrays: fixe și rapide în scenarii simple.
+- Vectors: redimensionabile, mai ușor de folosit în practică.
+- Tuples: utile când vrei tipuri diferite în același grup.
+
+Capcană frecventă:
+- Să alegi din reflex `Vec` sau array fără să te uiți la constrângeri (mărime fixă vs dinamică).
+
+Exemplu minim:
+`let cities = ["Bucharest", "Cluj"]; // colecție simplă, mărime fixă`
+
+Scor înțelegere: 10/10
+
+## 3.1.1
+
+1. Subcapitolul explică arrays: se declară cu `[]`, conțin elemente de același tip și au mărime fixă.
+2. Tipul unui array include și lungimea: forma este `[tip; număr]`, deci `[&str; 2]` și `[&str; 3]` sunt tipuri diferite.
+3. Poți crea rapid arrays repetate cu sintaxa `[valoare; număr]` (ex: buffer de bytes `[0u8; 640]`).
+4. Arrays permit indexing (`arr[i]`) și slicing (`&arr[2..5]`, `&arr[..]`), iar intervalele pot fi exclusive (`..`) sau inclusive (`..=`).
+5. Concluzia practică: arrays sunt excelente când știi dimensiunea dinainte și vrei structură strictă, simplă și eficientă.
+
+Concepte-cheie:
+- Array = elemente de același tip + dimensiune fixă.
+- Tip explicit: `[T; N]`.
+- Indexare cu `[]`, slice cu `&[start..end]`.
+- Prefixul `b` transformă textul ASCII într-un array de bytes (`[u8; N]`).
+
+Capcană frecventă:
+- Să uiți că lungimea face parte din tip și să tratezi arrays cu lungimi diferite ca fiind același tip.
+
+Exemplu minim:
+`let array_of_ten = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; let two_to_five = &array_of_ten[2..5];`
+
+Scor înțelegere: 10/10
+
 ## 1.1
 
 1. Secțiunea introduce primul contact practic cu Rust.
