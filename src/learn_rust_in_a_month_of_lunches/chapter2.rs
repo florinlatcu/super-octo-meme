@@ -9,6 +9,7 @@ pub fn run() {
     lunches_2_7();
     lunches_2_8();
     lunches_2_9();
+    lunches_2_10();
 }
 
 fn lunches_2_1() {
@@ -336,4 +337,97 @@ fn lunches_2_9() {
     // Nu e nevoie de `mut` dacă valoarea este setată o singură dată.
     my_variable = 99;
     println!("[2.9] my_variable inițializată ulterior: {my_variable}");
+}
+
+fn lunches_2_10() {
+    println!("\n=== 2.10 Mai multe despre afișare ===");
+    // ----- 2.10 Mai multe despre afișare -----
+
+    // \n și \t
+    print!("\t Start with a tab\nand move to a new line");
+    println!();
+
+    // String pe mai multe linii (atenție la spații/indentare).
+    println!("Inside quotes\nyou can write over\nmany lines\nand it will print just fine.");
+    println!("If you forget to write\n    on the left side, the spaces\n    will be added when you print.");
+
+    // Escape-uri explicite.
+    println!("Here are two escape characters: \\n and \\t");
+
+    // Raw string pentru texte cu multe backslash-uri/ghilimele.
+    println!(
+        "He said, \"You can find the file at c:\\\\files\\\\my_documents\\\\file.txt.\" Then I found the file."
+    );
+    println!(
+        r#"He said, "You can find the file at c:\files\my_documents\file.txt." Then I found the file."#
+    );
+
+    // r#, r##, r####
+    let my_string = "'Ice to see you,' he said.";
+    let quote_string = r#""Ice to see you," he said."#;
+    let hashtag_string = r##"The hashtag "#IceToSeeYou" had become very popular."##;
+    let many_hashtags = r####""You don't have to type "###" to use a hashtag. You can just use #."####;
+    println!(
+        "{}\n{}\n{}\n{}\n",
+        my_string, quote_string, hashtag_string, many_hashtags
+    );
+
+    // Bytes din string-uri ASCII.
+    println!("{:?}", b"This will look like numbers");
+    println!("{:?}", br##"I like to write "#"."##);
+
+    // Escape Unicode.
+    println!("{:X}", '행' as u32);
+    println!("{:X}", 'H' as u32);
+    println!("{:X}", '居' as u32);
+    println!("{:X}", 'い' as u32);
+    println!("\u{D589}, \u{48}, \u{5C45}, \u{3044}");
+
+    // Adresă de pointer.
+    let number = 9;
+    let number_ref = &number;
+    println!("Pointer address: {:p}", number_ref);
+
+    // Binar / hex / octal.
+    let number = 555;
+    println!(
+        "Binary: {:b}, hexadecimal: {:x}, octal: {:o}",
+        number, number, number
+    );
+
+    // Reordonare cu index.
+    let father_name = "Vlad";
+    let son_name = "Adrian Fahrenheit";
+    let family_name = "Țepeș";
+    println!(
+        "This is {1} {2}, son of {0} {2}.",
+        father_name, son_name, family_name
+    );
+
+    // Formatare cu nume.
+    println!(
+        "{city1} is in {country} and {city2} is also in {country}, but {city3} is not in {country}.",
+        city1 = "Seoul",
+        city2 = "Busan",
+        city3 = "Tokyo",
+        country = "Korea"
+    );
+
+    // Formatare complexă: padding + aliniere + lățime.
+    let letter = "a";
+    println!("{:ㅎ^11}", letter);
+
+    let title = "TODAY'S NEWS";
+    println!("{:-^30}", title);
+
+    let bar = "|";
+    println!("{: <15}{: >15}", bar, bar);
+
+    let city_left = "SEOUL";
+    let city_right = "TOKYO";
+    println!(
+        "{city1:-<15}{city2:->15}",
+        city1 = city_left,
+        city2 = city_right
+    );
 }

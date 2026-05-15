@@ -253,6 +253,28 @@ Exemplu minim:
 
 Scor înțelegere: 10/10
 
+## Sumar Capitolul 2
+
+Capitolul 2, `Memory, variables, and ownership`, este fundația practică pentru felul în care Rust gestionează datele în siguranță.
+Parcurgând secțiunile 2.1–2.10, ideea centrală devine clară: ownership este regula implicită, iar references sunt modul controlat de a împrumuta date fără transfer de ownership.
+Capitolul acoperă diferența `stack` vs `heap`, tipurile `String` și `&str`, folosirea `const`/`static`, regulile pentru `&` și `&mut`, shadowing în context de references, tipurile `Copy`, variabilele neinițializate și formatarea avansată cu `println!`.
+Mesajul-cheie este că Rust preferă reguli stricte la compilare ca să evite bug-uri de memorie la rulare.
+Concluzia mea este că, după capitolul 2, ownership nu mai pare „magie”, ci un model logic și previzibil.
+
+Concepte-cheie:
+- Ownership implicit + împrumut cu references (`&T`, `&mut T`).
+- `String` este owned; `&str` este borrowed slice.
+- Tipurile `Copy` folosesc copiere implicită, nu move.
+- `println!` are capabilități extinse de formatare (escape-uri, raw strings, bytes, pointere, aliniere/padding).
+
+Capcană frecventă:
+- Folosirea inutilă a `.clone()` sau încercarea de a combina borrow-uri incompatibile (`&` și `&mut`) pe aceeași valoare în același timp.
+
+Exemplu minim:
+`let mut s = String::from("Austria"); add_hungary_by_mut_ref(&mut s); println!("{}", s);`
+
+Scor înțelegere: 10/10
+
 ## 2.1
 
 1. Secțiunea introduce ideea că `stack` și `heap` sunt două locuri diferite pentru memorie, iar `stack` este de obicei mai rapid.
@@ -482,5 +504,26 @@ Capcană frecventă:
 
 Exemplu minim:
 `let my_number; { let calculation_result = 57; my_number = calculation_result; } println!("{my_number}");`
+
+Scor înțelegere: 10/10
+
+## 2.10
+
+1. Secțiunea extinde folosirea `print!`/`println!` cu exemple de formatare mai avansată.
+2. `\n` și `\t` controlează liniile și tab-urile, iar `\\` permite afișarea caracterelor escape literal.
+3. `raw strings` (`r#"..."#`, `r##"..."##`) simplifică texte cu multe ghilimele/backslash-uri.
+4. Poți afișa bytes (`b"..."`, `br##"..."##`), coduri Unicode, adrese de pointer (`{:p}`), dar și baze numerice (`{:b}`, `{:x}`, `{:o}`).
+5. Concluzia practică: `println!` este mult mai puternic decât pare și te ajută să controlezi clar output-ul.
+
+Concepte-cheie:
+- Escape-uri: `\n`, `\t`, `\\`.
+- `raw strings` pentru texte complexe.
+- Placeholders cu index/nume și formatare (`padding`, aliniere, lățime).
+
+Capcană frecventă:
+- Indentarea accidentală în string-uri multi-line adaugă spații în output.
+
+Exemplu minim:
+`println!("Binary: {:b}, hex: {:x}, octal: {:o}", 555, 555, 555);`
 
 Scor înțelegere: 10/10
