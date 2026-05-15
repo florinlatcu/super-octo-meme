@@ -47,6 +47,12 @@ Funcțiile din `main.rs` folosesc prefixul `lunches_` ca să fie clar că lucrez
 
 Capitolul 2 este complet ✅
 
+## Progress tracker (capitolul 3)
+
+- [x] 3.1
+- [x] 3.1.1
+- [x] 3.1.2
+
 ## Ritm de studiu
 
 - 1 oră pe zi, în zile lucrătoare

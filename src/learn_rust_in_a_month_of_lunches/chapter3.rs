@@ -2,6 +2,7 @@ pub fn run() {
     // ===== Capitolul 3: More complex types =====
     lunches_3_1();
     lunches_3_1_1();
+    lunches_3_1_2();
 }
 
 fn lunches_3_1() {
@@ -67,6 +68,70 @@ fn lunches_3_1_1() {
         "[3.1.1] two_to_five={:?}, start_at_one={:?}, end_at_five={:?}, everything={:?}, inclusive_zero_to_two={:?}",
         two_to_five, start_at_one, end_at_five, everything, inclusive_zero_to_two
     );
+}
+
+fn lunches_3_1_2() {
+    println!("\n=== 3.1.2 Vectors ===");
+    // ----- 3.1.2 Vectors -----
+
+    // Vec::new() + push()
+    let name1 = String::from("Windy");
+    let name2 = String::from("Gomesy");
+    let mut my_vec = Vec::new();
+    my_vec.push(name1);
+    my_vec.push(name2);
+    println!("[3.1.2] Vec::new + push: {:?}", my_vec);
+    print_type_of("my_vec", &my_vec);
+
+    // Tip explicit pentru Vec.
+    let mut explicit_vec: Vec<String> = Vec::new();
+    explicit_vec.push("Seoul".to_string());
+    explicit_vec.push("Busan".to_string());
+    println!("[3.1.2] Vec<String> explicit: {:?}", explicit_vec);
+
+    // vec! macro.
+    let mut vec_macro = vec![8, 10, 10];
+    vec_macro.push(12);
+    println!("[3.1.2] vec! macro: {:?}", vec_macro);
+
+    // Slicing pe vector.
+    let vec_of_ten = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let three_to_five = &vec_of_ten[2..5];
+    let start_at_two = &vec_of_ten[1..];
+    let end_at_five = &vec_of_ten[..5];
+    let everything = &vec_of_ten[..];
+    println!(
+        "[3.1.2] slices -> three_to_five={:?}, start_at_two={:?}, end_at_five={:?}, everything={:?}",
+        three_to_five, start_at_two, end_at_five, everything
+    );
+
+    // Capacitate și realocare.
+    let mut num_vec = Vec::new();
+    println!("[3.1.2] capacity start: {}", num_vec.capacity());
+    num_vec.push('a');
+    println!("[3.1.2] after 1 push: {}", num_vec.capacity());
+    num_vec.push('a');
+    num_vec.push('a');
+    num_vec.push('a');
+    println!("[3.1.2] after 4 pushes: {}", num_vec.capacity());
+    num_vec.push('a');
+    println!("[3.1.2] after 5 pushes: {}", num_vec.capacity());
+
+    // Vec::with_capacity() pentru eficiență.
+    let mut num_vec_better = Vec::with_capacity(8);
+    num_vec_better.push('a');
+    println!("[3.1.2] with_capacity after 1 push: {}", num_vec_better.capacity());
+    num_vec_better.push('a');
+    num_vec_better.push('a');
+    num_vec_better.push('a');
+    num_vec_better.push('a');
+    println!("[3.1.2] with_capacity after 5 pushes: {}", num_vec_better.capacity());
+
+    // Array -> Vec cu into().
+    let my_vec_u8: Vec<u8> = [1, 2, 3].into();
+    let my_vec_inferred: Vec<_> = [9, 0, 10].into();
+    println!("[3.1.2] into vec explicit: {:?}", my_vec_u8);
+    println!("[3.1.2] into vec inferred: {:?}", my_vec_inferred);
 }
 
 fn print_type_of<T>(label: &str, _: &T) {
