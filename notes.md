@@ -539,6 +539,28 @@ Exemplu minim:
 
 Scor înțelegere: 10/10
 
+## Sumar Capitolul 3
+
+Capitolul 3, `More complex types`, leagă două idei foarte importante în Rust: cum grupezi datele și cum controlezi fluxul programului.
+În prima parte (3.1), capitolul compară arrays, vectors și tuples, explicând când e mai potrivit fiecare tip.
+Mesajul principal este că arrays sunt stricte și rapide (mărime fixă), vectors sunt flexibile (mărime dinamică), iar tuples sunt excelente pentru grupări scurte de tipuri diferite.
+În partea a doua (3.2), capitolul trece la `control flow`: `if`, `match`, `loop`, `while`, `for`, plus range-uri exclusive/inclusive și `break` cu valoare.
+Concluzia mea este că, după capitolul 3, codul devine mult mai expresiv: poți descrie clar atât structura datelor, cât și logica de execuție, fără să pierzi siguranța oferită de compilator.
+
+Concepte-cheie:
+- Arrays: rapide, dimensiune fixă, un singur tip.
+- `Vec<T>`: colecție dinamică, potrivită pentru date care cresc/scad.
+- Tuples: grupare de tipuri diferite, destructurare elegantă.
+- `match` exhaustiv și loops (`loop`, `while`, `for`) pentru control flow clar.
+
+Capcană frecventă:
+- Să alegi tipul de colecție „din reflex” sau să folosești ramuri/loop-uri fără criterii clare de oprire (`break`).
+
+Exemplu minim:
+`let result = loop { if ready { break 56; } };`
+
+Scor înțelegere: 10/10
+
 ## 3.1
 
 1. Secțiunea introduce `collection types`, adică structuri care țin mai multe valori într-un singur loc.
@@ -686,5 +708,27 @@ Capcană frecventă:
 
 Exemplu minim:
 `let second_number = match my_number { 0 => 0, 5 => 10, _ => 2 };`
+
+Scor înțelegere: 10/10
+
+## 3.2.3
+
+1. Subcapitolul introduce `loops`: `loop`, `while` și `for`, fiecare util pentru un tip diferit de repetare.
+2. `loop` rulează până când îi spui explicit `break`; poți avea și loop-uri etichetate (`'first_loop`) pentru nested loops.
+3. `while` repetă cât timp o condiție este adevărată, fiind mai simplu când ai un criteriu clar de oprire.
+4. `for` iterează natural peste range-uri (`0..3`, `0..=3`) și peste colecții; `_` este util când nu folosești variabila de iterație.
+5. Concluzia practică: alegerea corectă a loop-ului face codul mai clar, iar `break` poate returna direct o valoare utilă.
+
+Concepte-cheie:
+- `loop` + `break` pentru control manual complet.
+- Etichete de loop (`'name`) pentru a ieși din loop-ul dorit.
+- `while` pentru condiții booleene verificate la fiecare pas.
+- `for` + range-uri pentru iterații concise și lizibile.
+
+Capcană frecventă:
+- Să folosești `loop` fără condiție de ieșire sau să spargi loop-ul greșit într-un nested loop.
+
+Exemplu minim:
+`let my_number = loop { counter += 1; if counter % 53 == 3 { break counter; } };`
 
 Scor înțelegere: 10/10

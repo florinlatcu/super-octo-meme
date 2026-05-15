@@ -7,6 +7,7 @@ pub fn run() {
     lunches_3_2();
     lunches_3_2_1();
     lunches_3_2_2();
+    lunches_3_2_3();
 }
 
 fn lunches_3_1() {
@@ -307,4 +308,98 @@ fn do_something_unit() {
 
 fn print_type_of<T>(label: &str, _: &T) {
     println!("[type] {} => {}", label, std::any::type_name::<T>());
+}
+
+fn lunches_3_2_3() {
+    println!("\n=== 3.2.3 Loops ===");
+    // ----- 3.2.3 Loops -----
+
+    // loop + break simplu.
+    let mut counter = 0;
+    loop {
+        counter += 1;
+        println!("[3.2.3] loop counter: {counter}");
+        if counter == 5 {
+            break;
+        }
+    }
+
+    // Loop-uri etichetate (named loops).
+    let mut counter_outer = 0;
+    let mut counter_inner = 0;
+    println!("[3.2.3] Entering first loop");
+    'first_loop: loop {
+        counter_outer += 1;
+        println!("[3.2.3] first loop counter: {counter_outer}");
+        if counter_outer > 5 {
+            println!("[3.2.3] Entering second loop");
+            'second_loop: loop {
+                println!("[3.2.3] second loop counter: {counter_inner}");
+                counter_inner += 1;
+                if counter_inner == 3 {
+                    break 'first_loop;
+                }
+                if counter_inner == 1000 {
+                    break 'second_loop;
+                }
+            }
+        }
+    }
+
+    // while loop.
+    let mut while_counter = 0;
+    while while_counter < 5 {
+        while_counter += 1;
+        println!("[3.2.3] while counter: {while_counter}");
+    }
+
+    // for loop cu range exclusiv / inclusiv.
+    for number in 0..3 {
+        println!("[3.2.3] exclusive range number: {number}");
+    }
+    for number in 0..=3 {
+        println!("[3.2.3] inclusive range number: {number}");
+    }
+
+    // Dacă nu avem nevoie de variabilă, folosim _.
+    for _ in 0..3 {
+        println!("[3.2.3] Printing the same thing three times");
+    }
+
+    // break poate întoarce o valoare.
+    let mut break_counter = 5;
+    let my_number = loop {
+        break_counter += 1;
+        if break_counter % 53 == 3 {
+            break break_counter;
+        }
+    };
+    println!("[3.2.3] break returned value: {my_number}");
+
+    // Soluție mai bună pentru exemplul culorilor: verifică fiecare culoare.
+    match_colors_with_loop((200, 0, 0));
+    match_colors_with_loop((50, 50, 50));
+    match_colors_with_loop((200, 50, 0));
+}
+
+fn match_colors_with_loop(rgb: (i32, i32, i32)) {
+    let (red, blue, green) = (rgb.0, rgb.1, rgb.2);
+    println!(
+        "[3.2.3] Comparing a color with {red} red, {blue} blue, and {green} green:"
+    );
+
+    let color_vec = vec![(red, "red"), (blue, "blue"), (green, "green")];
+    let mut all_have_at_least_10 = true;
+
+    for (amount, color) in color_vec {
+        if amount < 10 {
+            all_have_at_least_10 = false;
+            println!("[3.2.3] Not much {color}.");
+        }
+    }
+
+    if all_have_at_least_10 {
+        println!("[3.2.3] Each color has at least 10.");
+    }
+    println!();
 }
