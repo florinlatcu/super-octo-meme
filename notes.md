@@ -1,4 +1,15 @@
-# Notițe carte Rust 
+# Template rapid Git (comandă + explicație)
+
+1. `git add -A`
+	- Pune în staging toate modificările (fișiere noi, modificate, șterse).
+2. `git commit -m "mesaj clar despre ce ai făcut"`
+	- Creează commit-ul local cu o descriere scurtă și precisă.
+3. `git push`
+	- Trimite commit-ul pe remote (de obicei pe `main`).
+4. `git status --short`
+	- Verificare rapidă că nu au rămas modificări locale neașteptate.
+
+# Notițe carte Rust
 # Learn Rust in a Month of Lunches
 
 ## Sumar Capitolul 1
@@ -654,5 +665,26 @@ Capcană frecventă:
 
 Exemplu minim:
 `if my_number % 2 == 1 && my_number > 0 { println!("pozitiv impar"); }`
+
+Scor înțelegere: 10/10
+
+## 3.2.2
+
+1. Subcapitolul introduce `match`, o alternativă foarte clară la lanțuri lungi de `if`/`else if`.
+2. `match` trebuie să fie exhaustiv: toate cazurile posibile trebuie acoperite (de obicei cu `_` pentru „restul”).
+3. Fiecare braț (`arm`) folosește `=>`, iar brațele sunt separate prin virgulă.
+4. `match` poate produce direct o valoare și poate folosi pattern-uri mai complexe (tuple, intervale, `@`, guards).
+5. Concluzia practică: `match` este excelent pentru clasificări clare și robuste, mai ales când ai multe cazuri.
+
+Concepte-cheie:
+- Exhaustivitate (`_` wildcard când nu enumeri toate valorile).
+- `match` pe tuple și `match guard` (`if` după pattern).
+- Brațele din `match` trebuie să întoarcă același tip când rezultatul este atribuit.
+
+Capcană frecventă:
+- Să uiți un caz (fără `_`) sau să întorci tipuri diferite în brațe.
+
+Exemplu minim:
+`let second_number = match my_number { 0 => 0, 5 => 10, _ => 2 };`
 
 Scor înțelegere: 10/10

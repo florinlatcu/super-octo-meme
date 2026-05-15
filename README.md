@@ -55,6 +55,7 @@ Capitolul 2 este complet ✅
 - [x] 3.1.3
 - [x] 3.2
 - [x] 3.2.1
+- [x] 3.2.2
 
 ## Ritm de studiu
 

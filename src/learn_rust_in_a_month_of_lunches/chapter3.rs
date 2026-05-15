@@ -6,6 +6,7 @@ pub fn run() {
     lunches_3_1_3();
     lunches_3_2();
     lunches_3_2_1();
+    lunches_3_2_2();
 }
 
 fn lunches_3_1() {
@@ -217,6 +218,87 @@ fn lunches_3_2_1() {
 
     // Notă din carte: în Rust nu ai nevoie de paranteze la if.
     // if (my_number == 7) { ... } // compilează, dar parantezele sunt inutile.
+}
+
+fn lunches_3_2_2() {
+    println!("\n=== 3.2.2 Match statements ===");
+    // ----- 3.2.2 Match statements -----
+
+    // Match exhaustiv + wildcard.
+    let my_number: u8 = 5;
+    match my_number {
+        0 => println!("[3.2.2] it's zero"),
+        1 => println!("[3.2.2] it's one"),
+        2 => println!("[3.2.2] it's two"),
+        _ => println!("[3.2.2] it's some other number"),
+    }
+
+    // Match folosit pentru a produce o valoare.
+    let second_number = match my_number {
+        0 => 0,
+        5 => 10,
+        _ => 2,
+    };
+    println!("[3.2.2] second_number = {second_number}");
+
+    // Match pe tuple.
+    let sky = "cloudy";
+    let temperature = "warm";
+    match (sky, temperature) {
+        ("cloudy", "cold") => println!("[3.2.2] It's dark and unpleasant today"),
+        ("clear", "warm") => println!("[3.2.2] It's a nice day"),
+        ("cloudy", "warm") => println!("[3.2.2] It's dark but not bad"),
+        _ => println!("[3.2.2] Not sure what the weather is."),
+    }
+
+    // Match guard.
+    let children = 5;
+    let married = true;
+    match (children, married) {
+        (children, married) if !married => {
+            println!("[3.2.2] Not married with {children} kids")
+        }
+        (children, married) if children == 0 && married => {
+            println!("[3.2.2] Married but no children")
+        }
+        _ => println!("[3.2.2] Married? {married}. Number of children: {children}."),
+    }
+
+    // _ de mai multe ori într-un pattern.
+    match_colors((200, 0, 0));
+    match_colors((50, 50, 50));
+    match_colors((200, 50, 0));
+
+    // @ pentru a denumi valoarea potrivită în branch-ul de match.
+    match_number(50);
+    match_number(13);
+    match_number(16);
+    match_number(4);
+
+    // Exemplu invalid din carte (comentat):
+    // let some_variable = match my_number {
+    //     10 => 8,
+    //     _ => "Not ten",
+    // };
+    // Nu compilează: brațele din match trebuie să întoarcă același tip.
+}
+
+fn match_colors(rgb: (i32, i32, i32)) {
+    match rgb {
+        (r, _, _) if r < 10 => println!("[3.2.2] Not much red"),
+        (_, g, _) if g < 10 => println!("[3.2.2] Not much green"),
+        (_, _, b) if b < 10 => println!("[3.2.2] Not much blue"),
+        _ => println!("[3.2.2] Each color has at least 10"),
+    }
+}
+
+fn match_number(input: i32) {
+    match input {
+        number @ 4 => println!("[3.2.2] {number} is unlucky in China (sounds close to 死)!"),
+        number @ 13 => println!("[3.2.2] {number} is lucky in Italy! In bocca al lupo!"),
+        number @ 14..=19 => println!("[3.2.2] Some other number that ends with -teen: {number}"),
+        _ => println!("[3.2.2] Some other number, I guess"),
+    }
 }
 
 fn do_something_unit() {
