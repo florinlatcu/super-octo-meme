@@ -7,6 +7,7 @@ pub fn run() {
     lunches_2_5();
     lunches_2_6();
     lunches_2_7();
+    lunches_2_8();
 }
 
 fn lunches_2_1() {
@@ -219,8 +220,8 @@ fn lunches_2_6() {
 }
 
 fn lunches_2_7() {
-    println!("\n=== 2.7 Giving references to functions ===");
-    // ----- 2.7 Giving references to functions -----
+    println!("\n=== 2.7 Referințe date funcțiilor ===");
+    // ----- 2.7 Referințe date funcțiilor -----
     // Diferența dintre a da ownership (`String`) și a împrumuta (`&String` / `&mut String`).
 
     // Dacă dăm un String direct, ownership se mută în funcție.
@@ -262,4 +263,52 @@ fn add_hungary_owned(mut string_to_add_hungary_to: String) {
     println!("[2.7] add_hungary_owned(String)");
     string_to_add_hungary_to.push_str("-Hungary");
     println!("Now it says: {}", string_to_add_hungary_to);
+}
+
+fn lunches_2_8() {
+    println!("\n=== 2.8 Tipuri Copy ===");
+    // ----- 2.8 Tipuri Copy -----
+    // Tipurile Copy (ex: i32) se copiază automat când sunt date ca argument.
+    // String nu este Copy, dar este Clone.
+
+    let my_number = 8;
+    prints_number_copy(my_number);
+    prints_number_copy(my_number);
+    println!("[2.8] my_number este încă valid: {}", my_number);
+
+    let country = String::from("Kiribati");
+    prints_country_owned_2_8(country.clone());
+    prints_country_owned_2_8(country);
+
+    println!("[2.8] comparație clone vs referință");
+    let mut my_string = String::new();
+    for _ in 0..5 {
+        my_string.push_str("Here are some more words ");
+        get_length_owned(my_string.clone());
+    }
+
+    let mut my_string_ref = String::new();
+    for _ in 0..5 {
+        my_string_ref.push_str("Here are some more words ");
+        get_length_by_ref(&my_string_ref);
+    }
+}
+
+fn prints_number_copy(number: i32) {
+    println!("[2.8] prints_number_copy(i32): {number}");
+}
+
+fn prints_country_owned_2_8(country_name: String) {
+    println!("[2.8] prints_country_owned_2_8(String): {country_name}");
+}
+
+fn get_length_owned(input: String) {
+    println!("[2.8] clone -> It's {} words long.", input.split_whitespace().count());
+}
+
+fn get_length_by_ref(input: &String) {
+    println!(
+        "[2.8] referință -> It's {} words long.",
+        input.split_whitespace().count()
+    );
 }

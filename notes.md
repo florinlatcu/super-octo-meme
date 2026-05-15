@@ -131,17 +131,17 @@ Scor înțelegere: 10/10
 
 1. Secțiunea introduce exemplul clasic `Hello, world!` și explică afișarea cu `println!`.
 2. Acoladele `{}` din `println!` pot afișa valori introduse direct sau returnate de funcții.
-3. Functions pot primi arguments și pot întoarce values cu `->`.
-4. În Rust, ultima expression fără `;` este returnată implicit din function.
-5. Concluzia practică: `println!`, function arguments și return values sunt baza pentru secțiunile următoare.
+3. Funcțiile pot primi arguments și pot întoarce values cu `->`.
+4. În Rust, ultima expression fără `;` este returnată implicit din funcție.
+5. Concluzia practică: `println!`, argumentele funcției și valorile returnate sunt baza pentru secțiunile următoare.
 
 Concepte-cheie:
 - `println!` este macro-ul standard pentru output.
-- `fn name(...) -> type` definește o function care întoarce o value.
+- `fn name(...) -> type` definește o funcție care întoarce o value.
 - Lipsa lui `;` pe ultima expression permite implicit return.
 
 Capcană frecventă:
-- Dacă pui `;` la finalul expresiei returnate, function nu mai întoarce expected value.
+- Dacă pui `;` la finalul expresiei returnate, funcția nu mai întoarce expected value.
 
 Exemplu minim:
 `fn give_number() -> i32 { 8 } println!("{}", give_number());`
@@ -300,7 +300,7 @@ Scor înțelegere: 10/10
 1. Secțiunea introduce două moduri de a declara valori fără `let`: `const` și `static`.
 2. Pentru ambele, trebuie să specifici explicit `type`-ul (nu există type inference aici).
 3. `const` este pentru valori fixe evaluate la compile time, iar `static` este similar, dar are fixed memory location.
-4. Valorile globale (`const`/`static`) se declară de obicei cu nume în ALL CAPS și pot fi accesate din orice function.
+4. Valorile globale (`const`/`static`) se declară de obicei cu nume în ALL CAPS și pot fi accesate din orice funcție.
 5. Concluzia practică: `const` și `static` sunt bune pentru date globale stabile, dar nu înlocuiesc variabilele obișnuite cu `let`.
 
 Concepte-cheie:
@@ -320,9 +320,9 @@ Scor înțelegere: 10/10
 
 1. Secțiunea aprofundează references și arată că poți avea mai multe immutable references către aceeași valoare.
 2. Un `&String` doar împrumută datele; ownership rămâne la valoarea originală.
-3. Exemplul-cheie arată că nu poți returna o referință către o variabilă locală creată în function.
+3. Exemplul-cheie arată că nu poți returna o referință către o variabilă locală creată într-o funcție.
 4. Motivul este `lifetime`: variabila locală este dropped la finalul block-ului, iar referința ar deveni invalidă.
-5. Concluzia practică: când datele trebuie să iasă din function, de obicei returnezi valoarea owned (ex: `String`), nu referință la local.
+5. Concluzia practică: când datele trebuie să iasă din funcție, de obicei returnezi valoarea owned (ex: `String`), nu referință la local.
 
 Concepte-cheie:
 - `&T` = borrow, nu transfer de ownership.
@@ -424,21 +424,42 @@ Scor înțelegere: 10/10
 
 ## 2.7
 
-1. Secțiunea explică cum ownership-ul interacționează cu function arguments.
-2. Dacă o function primește `String`, ea preia ownership (move), iar valoarea nu mai poate fi folosită după apel.
-3. Dacă primește `&String`, function doar împrumută datele și poți apela de mai multe ori fără să pierzi ownership-ul.
-4. Dacă primește `&mut String`, function poate modifica textul fără să devină owner.
+1. Secțiunea explică cum ownership-ul interacționează cu argumentele funcției.
+2. Dacă o funcție primește `String`, ea preia ownership (move), iar valoarea nu mai poate fi folosită după apel.
+3. Dacă primește `&String`, funcția doar împrumută datele și poți apela de mai multe ori fără să pierzi ownership-ul.
+4. Dacă primește `&mut String`, funcția poate modifica textul fără să devină owner.
 5. Concluzia practică: alegi `String` pentru transfer de ownership, `&String` pentru read-only borrow, `&mut String` pentru mutable borrow.
 
 Concepte-cheie:
-- `fn f(x: String)` => move în function.
+- `fn f(x: String)` => move în funcție.
 - `fn f(x: &String)` => read-only borrow.
 - `fn f(x: &mut String)` => mutable borrow.
 
 Capcană frecventă:
-- Să chemi de două ori o function care primește `String`, folosind aceeași variabilă (a doua folosire dă „use of moved value”).
+- Să chemi de două ori o funcție care primește `String`, folosind aceeași variabilă (a doua folosire dă „use of moved value”).
 
 Exemplu minim:
 `let mut country = String::from("Austria"); add_hungary_by_mut_ref(&mut country); println!("{}", country);`
+
+Scor înțelegere: 10/10
+
+## 2.8
+
+1. Secțiunea introduce `Copy types`: tipuri simple, pe `stack`, care se copiază automat când le dai ca argument.
+2. Pentru aceste tipuri (ex: `i32`, `bool`, `char`, `f64`), nu te lovești de „move” la fiecare apel.
+3. `String` nu implementează `Copy`; când îl dai by value, ownership se mută.
+4. Dacă ai nevoie de două valori similare pentru `String`, poți folosi `.clone()`, dar costă memorie.
+5. Concluzia practică: dacă nu vrei transfer de ownership, cea mai bună alegere este de obicei o referință immutable (`&T`).
+
+Concepte-cheie:
+- `Copy` = copiere implicită, ieftină, pentru tipuri triviale.
+- `Clone` = copiere explicită (`.clone()`), utilă dar potențial costisitoare.
+- `String` este `Clone`, nu `Copy`.
+
+Capcană frecventă:
+- Să folosești `.clone()` în bucle fără motiv, când o referință (`&String`) ar fi suficientă și mai eficientă.
+
+Exemplu minim:
+`let country = String::from("Kiribati"); prints_country_owned_2_8(country.clone()); prints_country_owned_2_8(country);`
 
 Scor înțelegere: 10/10
