@@ -66,6 +66,7 @@ Capitolul 3 este complet ✅
 - citit + implementat + notițe + commit/push
 
 Flux zilnic (scurt):
+
 1. citesc subcapitolul;
 2. implementez funcția `lunches_x_y`;
 3. completez secțiunea în `notes.md`;

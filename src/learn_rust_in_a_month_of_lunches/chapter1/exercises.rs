@@ -23,7 +23,7 @@ pub fn run() {
 
 fn run_recommended_path() {
     println!("\n--- Traseu recomandat (Bază -> Combinat -> Mini-test) ---");
-    for ex_id in [1u8, 2, 3, 4, 5, 6, 7, 11] {
+    for ex_id in [1u8, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] {
         run_by_id(ex_id);
     }
 }
@@ -183,6 +183,18 @@ fn exercitiu_1_8_debug_struct() {
     // 3) Afișare compactă și pretty.
     // Concepte folosite: struct, derive(Debug), formatări.
     // Capcană frecventă: uitarea derive(Debug).
+    #[derive(Debug)]
+    struct Persoana {
+        nume: String,
+        varsta: u8,
+    }
+    let persoana = Persoana {
+        nume: String::from("Florin Lațcu"),
+        varsta: 37,
+    };
+    println!("Nume: {}, Vârstă: {}", persoana.nume, persoana.varsta);
+    println!("Persoană: {:?}", persoana);
+    println!("Persoană (pretty): {:#?}", persoana);
 }
 
 fn exercitiu_1_9_min_max() {
@@ -194,6 +206,12 @@ fn exercitiu_1_9_min_max() {
     // 3) Format clar al rezultatelor.
     // Concepte folosite: associated consts (MIN/MAX).
     // Capcană frecventă: folosirea tipului greșit la validări.
+    println!("i8: MIN = {}, MAX = {}", i8::MIN, i8::MAX);
+    println!("u8: MIN = {}, MAX = {}", u8::MIN, u8::MAX);
+    println!("i16: MIN = {}, MAX = {}", i16::MIN, i16::MAX);
+    println!("u16: MIN = {}, MAX = {}", u16::MIN, u16::MAX);
+    println!("i32: MIN = {}, MAX = {}", i32::MIN, i32::MAX);
+    println!("u32: MIN = {}, MAX = {}", u32::MIN, u32::MAX);
 }
 
 fn exercitiu_1_10_mutabilitate_si_shadowing() {
@@ -205,6 +223,13 @@ fn exercitiu_1_10_mutabilitate_si_shadowing() {
     // 3) Etapele afișate în ordine.
     // Concepte folosite: mut, let shadowing.
     // Capcană frecventă: confundarea mutării de tip cu mutabilitatea.
+    let mut numar = 10;
+    println!("Număr inițial (mut): {}", numar);
+    numar += 5;
+    println!("Număr după adunare (mut): {}", numar);
+
+    let numar = numar as f64;
+    println!("Număr shadowed (f64): {}", numar);
 }
 
 fn mini_test_final_capitol_1() {
@@ -216,5 +241,25 @@ fn mini_test_final_capitol_1() {
     // 3) Folosești o variabilă shadowed într-un pas intermediar.
     // Concepte folosite: String, block expression, shadowing, cast.
     // Capcană frecventă: amestec de tipuri fără conversie.
-    println!("Completează mini-testul final în această funcție.");
+    let nume = "Florin Lațcu";
+    let scor_initial = 85;
+
+    let scor_initial = {
+        let bonus = 10.0;
+        let scor_total = scor_initial as f64 + bonus;
+        scor_total
+    };
+
+    let scor_final = {
+        let rotunjire = 0.5;
+        scor_initial + rotunjire
+    };
+
+    let mesaj_final = format!(
+        "{} a obținut un scor final de {:.1}",
+        nume, scor_final
+    );
+
+    println!("Shadowing intermediar: scor_initial = {}", scor_initial);
+    println!("{}", mesaj_final);
 }

@@ -1,5 +1,7 @@
 # Notițe Capitolul 3
 
+<!-- markdownlint-disable MD032 -->
+
 ## Sumar Capitolul 3
 
 Capitolul 3, `More complex types`, leagă două idei foarte importante în Rust: cum grupezi datele și cum controlezi fluxul programului.

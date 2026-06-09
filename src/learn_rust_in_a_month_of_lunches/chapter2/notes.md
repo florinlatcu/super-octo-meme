@@ -1,5 +1,7 @@
 # Notițe Capitolul 2
 
+<!-- markdownlint-disable MD032 -->
+
 ## Sumar Capitolul 2
 
 Capitolul 2, `Memory, variables, and ownership`, este fundația practică pentru felul în care Rust gestionează datele în siguranță.

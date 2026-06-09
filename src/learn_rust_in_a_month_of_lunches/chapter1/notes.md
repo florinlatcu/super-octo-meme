@@ -1,5 +1,7 @@
 # Notițe Capitolul 1
 
+<!-- markdownlint-disable MD032 -->
+
 ## Sumar Capitolul 1
 
 Capitolul 1, `Some basics`, este o introducere ușoară și variată în Rust.
